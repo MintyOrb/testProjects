@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>test</title>
+		<script type="text/javascript" src="node_modules/flickity/dist/flickity.pkgd.js"></script>
+		<link rel="stylesheet" href="node_modules/flickity/dist/flickity.css"> 
+	</head>
+	<body>
+		<h1>Flickity - half-width cells</h1>
+		<!-- Flickity HTML init -->
+		<div class="gallery" >
+			<div class="gallery-cell"></div>
+			<div class="gallery-cell"></div>
+			<div class="gallery-cell"></div>
+			<div class="gallery-cell"></div>
+			<div class="gallery-cell"></div>
+		</div>
+		<button id="clicker">click me</button>
+		<div id="meep">woah</div>
+		<p>also</p>
+	</body>
+	<style type="text/css">
+		/* external css: flickity.css */
+		* {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		}
+		body { font-family: sans-serif; }
+		.gallery {
+		background: #EEE;
+		}
+		.gallery-cell {
+		transition: width 1s;
+		width: 10%;
+		height: 200px;
+		margin-right: 10px;
+		background: #8C8;
+		counter-increment: gallery-cell;
+		}
+		/* cell number */
+		.gallery-cell:before {
+		display: block;
+		text-align: center;
+		content: counter(gallery-cell);
+		line-height: 200px;
+		font-size: 80px;
+		color: white;
+		}
+	</style>
+	<script type="text/javascript">
+
+
+	var flky = new Flickity( '.gallery', {
+		// options, defaults listed
+
+		accessibility: true,
+		// enable keyboard navigation, pressing left & right keys
+
+		autoPlay: false,
+		// advances to the next cell
+		// if true, default is 3 seconds
+		// or set time between advances in milliseconds
+		// i.e. `autoPlay: 1000` will advance every 1 second
+
+		cellAlign: 'center',
+		// alignment of cells, 'center', 'left', or 'right'
+		// or a decimal 0-1, 0 is beginning (left) of container, 1 is end (right)
+
+		cellSelector: undefined,
+		// specify selector for cell elements
+
+		contain: false,
+		// will contain cells to container
+		// so no excess scroll at beginning or end
+		// has no effect if wrapAround is enabled
+
+		draggable: true,
+		// enables dragging & flicking
+
+		freeScroll: true,
+		// enables content to be freely scrolled and flicked
+		// without aligning cells
+
+		friction: 0.2,
+		// smaller number = easier to flick farther
+
+		initialIndex: 0,
+		// zero-based index of the initial selected cell
+
+		lazyLoad: true,
+		// enable lazy-loading images
+		// set img data-flickity-lazyload="src.jpg"
+		// set to number to load images adjacent cells
+
+		percentPosition: true,
+		// sets positioning in percent values, rather than pixels
+		// Enable if items have percent widths
+		// Disable if items have pixel widths, like images
+
+		prevNextButtons: true,
+		// creates and enables buttons to click to previous & next cells
+
+		pageDots: true,
+		// create and enable page dots
+
+		resize: true,
+		// listens to window resize events to adjust size & positions
+
+		rightToLeft: false,
+		// enables right-to-left layout
+
+		setGallerySize: true,
+		// sets the height of gallery
+		// disable if gallery already has height set with CSS
+
+		watchCSS: false,
+		// watches the content of :after of the element
+		// activates if #element:after { content: 'flickity' }
+		// IE8 and Android 2.3 do not support watching :after
+		// set watch: 'fallbackOn' to enable for these browsers
+
+		wrapAround: true
+		// at end of cells, wraps-around to first for infinite scrolling
+
+	});
+
+		// external js: flickity.pkgd.js
+	
+		// var elem = document.querySelector('.gallery');
+		// var flkty = new Flickity( elem, {
+		//   // options
+		//   // cellAlign: 'left',
+		  
+		// });
+		var h = document.getElementById("clicker");
+		var b = document.getElementById("meep");
+		var current = 10;
+		h.addEventListener("click", function() {
+			var elements = document.getElementsByClassName('gallery-cell');
+			current +=10;
+			for (var i = elements.length - 1; i > -1; i--) {
+				elements[i].style.width = current + "%";
+			}
+			b.innerHTML = "changed."
+			setTimeout(function(){ 
+				flky.reposition();
+			// flky.resize()
+			// flky.reloadCells()
+			}, 
+				1000);
+			
+		});
+	</script>
+</html>

@@ -1,0 +1,1568 @@
+{
+    "entities": {
+        "Q413": {
+            "pageid": 623,
+            "ns": 0,
+            "title": "Q413",
+            "lastrevid": 238366050,
+            "modified": "2015-08-01T16:42:18Z",
+            "id": "Q413",
+            "type": "item",
+            "labels": {
+                "en": {
+                    "language": "en",
+                    "value": "physics"
+                }
+            },
+            "descriptions": {
+                "en": {
+                    "language": "en",
+                    "value": "study of matter and its motion, along with related concepts such as energy and force"
+                }
+            },
+            "claims": {
+                "P1245": [
+                    {
+                        "id": "Q413$f69883bf-4ffc-b5dc-e0fa-e3f84247eb92",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1245",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "2798",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P1151": [
+                    {
+                        "id": "Q413$31cce410-46d9-a68d-df9c-cd58d62e5610",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1151",
+                            "datatype": "wikibase-item",
+                            "datavalue": {
+                                "value": {
+                                    "entity-type": "item",
+                                    "numeric-id": 6082802
+                                },
+                                "type": "wikibase-entityid"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P1190": [
+                    {
+                        "id": "Q413$79dbf158-4fc5-54fb-1675-0d07e6ea684b",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1190",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "53",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P1150": [
+                    {
+                        "id": "Q413$53738502-402c-e422-ce33-4adc065097f4",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1150",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "U",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P508": [
+                    {
+                        "id": "q413$83BAE0E2-17F7-43FC-9537-1215C9C23B65",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P508",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "4964",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal",
+                        "references": [
+                            {
+                                "hash": "33ef5efac8ec9d2de05f19b852ff1698d9036c26",
+                                "snaks": {
+                                    "P143": [
+                                        {
+                                            "snaktype": "value",
+                                            "property": "P143",
+                                            "datatype": "wikibase-item",
+                                            "datavalue": {
+                                                "value": {
+                                                    "entity-type": "item",
+                                                    "numeric-id": 460907
+                                                },
+                                                "type": "wikibase-entityid"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "snaks-order": [
+                                    "P143"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "P18": [
+                    {
+                        "id": "q413$267F14B5-95F5-4774-8F50-276F60B8FD0D",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P18",
+                            "datatype": "commonsMedia",
+                            "datavalue": {
+                                "value": "CollageFisica.jpg",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "preferred"
+                    }
+                ],
+                "P910": [
+                    {
+                        "id": "Q413$6D7D24E8-2E94-41B6-8B00-8B8DB0CB2003",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P910",
+                            "datatype": "wikibase-item",
+                            "datavalue": {
+                                "value": {
+                                    "entity-type": "item",
+                                    "numeric-id": 1457258
+                                },
+                                "type": "wikibase-entityid"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P349": [
+                    {
+                        "id": "Q413$9494D956-BB10-4A56-8F89-AB33F361F6CE",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P349",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "00561121",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P227": [
+                    {
+                        "id": "Q413$586DD722-D909-434A-9051-F371A5C8128B",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P227",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "4045956-1",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal",
+                        "references": [
+                            {
+                                "hash": "004ec6fbee857649acdbdbad4f97b2c8571df97b",
+                                "snaks": {
+                                    "P143": [
+                                        {
+                                            "snaktype": "value",
+                                            "property": "P143",
+                                            "datatype": "wikibase-item",
+                                            "datavalue": {
+                                                "value": {
+                                                    "entity-type": "item",
+                                                    "numeric-id": 48183
+                                                },
+                                                "type": "wikibase-entityid"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "snaks-order": [
+                                    "P143"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "P1036": [
+                    {
+                        "id": "Q413$b37cdb5b-4b72-661b-9a9f-fa2e9e31a3d0",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1036",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "530",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P646": [
+                    {
+                        "id": "Q413$FD47CD83-F4CC-44DC-BDC0-D63D2C14C55F",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P646",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "/m/05qjt",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal",
+                        "references": [
+                            {
+                                "hash": "af38848ab5d9d9325cffd93a5ec656cc6ca889ed",
+                                "snaks": {
+                                    "P248": [
+                                        {
+                                            "snaktype": "value",
+                                            "property": "P248",
+                                            "datatype": "wikibase-item",
+                                            "datavalue": {
+                                                "value": {
+                                                    "entity-type": "item",
+                                                    "numeric-id": 15241312
+                                                },
+                                                "type": "wikibase-entityid"
+                                            }
+                                        }
+                                    ],
+                                    "P577": [
+                                        {
+                                            "snaktype": "value",
+                                            "property": "P577",
+                                            "datatype": "time",
+                                            "datavalue": {
+                                                "value": {
+                                                    "time": "+2013-10-28T00:00:00Z",
+                                                    "timezone": 0,
+                                                    "before": 0,
+                                                    "after": 0,
+                                                    "precision": 11,
+                                                    "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                                                },
+                                                "type": "time"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "snaks-order": [
+                                    "P248",
+                                    "P577"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "P373": [
+                    {
+                        "id": "Q413$42449943-B2D1-46BB-8C8A-4A92B354E1F1",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P373",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "Physics",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal",
+                        "references": [
+                            {
+                                "hash": "2f183743080f8e1970847d13a04fde9a796f1476",
+                                "snaks": {
+                                    "P143": [
+                                        {
+                                            "snaktype": "value",
+                                            "property": "P143",
+                                            "datatype": "wikibase-item",
+                                            "datavalue": {
+                                                "value": {
+                                                    "entity-type": "item",
+                                                    "numeric-id": 191168
+                                                },
+                                                "type": "wikibase-entityid"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "snaks-order": [
+                                    "P143"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "P279": [
+                    {
+                        "id": "Q413$6c1a772b-4b12-e355-0d6f-d618c5e17a3c",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P279",
+                            "datatype": "wikibase-item",
+                            "datavalue": {
+                                "value": {
+                                    "entity-type": "item",
+                                    "numeric-id": 7991
+                                },
+                                "type": "wikibase-entityid"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P1051": [
+                    {
+                        "id": "Q413$F16178FA-86FF-4BD1-B738-E31650DAF4FB",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P1051",
+                            "datatype": "string",
+                            "datavalue": {
+                                "value": "2910",
+                                "type": "string"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ],
+                "P31": [
+                    {
+                        "id": "Q413$9eb1d2ba-4883-b974-2fcd-07214f327312",
+                        "mainsnak": {
+                            "snaktype": "value",
+                            "property": "P31",
+                            "datatype": "wikibase-item",
+                            "datavalue": {
+                                "value": {
+                                    "entity-type": "item",
+                                    "numeric-id": 11862829
+                                },
+                                "type": "wikibase-entityid"
+                            }
+                        },
+                        "type": "statement",
+                        "rank": "normal"
+                    }
+                ]
+            },
+            "sitelinks": {
+                "acewiki": {
+                    "site": "acewiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "afwiki": {
+                    "site": "afwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "alswiki": {
+                    "site": "alswiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "amwiki": {
+                    "site": "amwiki",
+                    "title": "የተፈጥሮ ሕግጋት ጥናት",
+                    "badges": []
+                },
+                "anwiki": {
+                    "site": "anwiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "arcwiki": {
+                    "site": "arcwiki",
+                    "title": "ܦܝܣܝܟ",
+                    "badges": []
+                },
+                "arwiki": {
+                    "site": "arwiki",
+                    "title": "فيزياء",
+                    "badges": []
+                },
+                "arzwiki": {
+                    "site": "arzwiki",
+                    "title": "فيزيا",
+                    "badges": []
+                },
+                "astwiki": {
+                    "site": "astwiki",
+                    "title": "Física",
+                    "badges": []
+                },
+                "aswiki": {
+                    "site": "aswiki",
+                    "title": "পদাৰ্থ বিজ্ঞান",
+                    "badges": []
+                },
+                "azwiki": {
+                    "site": "azwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "barwiki": {
+                    "site": "barwiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "bat_smgwiki": {
+                    "site": "bat_smgwiki",
+                    "title": "Fizėka",
+                    "badges": []
+                },
+                "bawiki": {
+                    "site": "bawiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "be_x_oldwiki": {
+                    "site": "be_x_oldwiki",
+                    "title": "Фізыка",
+                    "badges": []
+                },
+                "bewiki": {
+                    "site": "bewiki",
+                    "title": "Фізіка",
+                    "badges": []
+                },
+                "bgwiki": {
+                    "site": "bgwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "bgwikiquote": {
+                    "site": "bgwikiquote",
+                    "title": "Физика — Физици",
+                    "badges": []
+                },
+                "bhwiki": {
+                    "site": "bhwiki",
+                    "title": "भौतिकी",
+                    "badges": []
+                },
+                "bnwiki": {
+                    "site": "bnwiki",
+                    "title": "পদার্থবিজ্ঞান",
+                    "badges": []
+                },
+                "bowiki": {
+                    "site": "bowiki",
+                    "title": "དངོས་ཁམས་རིག་པ་",
+                    "badges": []
+                },
+                "brwiki": {
+                    "site": "brwiki",
+                    "title": "Fizik",
+                    "badges": []
+                },
+                "bswiki": {
+                    "site": "bswiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "bugwiki": {
+                    "site": "bugwiki",
+                    "title": "ᨄᨗᨔᨗᨀ",
+                    "badges": []
+                },
+                "bxrwiki": {
+                    "site": "bxrwiki",
+                    "title": "Бодос зүй",
+                    "badges": []
+                },
+                "cawiki": {
+                    "site": "cawiki",
+                    "title": "Física",
+                    "badges": []
+                },
+                "cdowiki": {
+                    "site": "cdowiki",
+                    "title": "Ŭk-lī",
+                    "badges": []
+                },
+                "cebwiki": {
+                    "site": "cebwiki",
+                    "title": "Pisika",
+                    "badges": []
+                },
+                "ckbwiki": {
+                    "site": "ckbwiki",
+                    "title": "فیزیک",
+                    "badges": []
+                },
+                "commonswiki": {
+                    "site": "commonswiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "cowiki": {
+                    "site": "cowiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "csbwiki": {
+                    "site": "csbwiki",
+                    "title": "Fizyka",
+                    "badges": []
+                },
+                "cswiki": {
+                    "site": "cswiki",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "cswikiquote": {
+                    "site": "cswikiquote",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "cvwiki": {
+                    "site": "cvwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "cywiki": {
+                    "site": "cywiki",
+                    "title": "Ffiseg",
+                    "badges": []
+                },
+                "dawiki": {
+                    "site": "dawiki",
+                    "title": "Fysik",
+                    "badges": []
+                },
+                "dewiki": {
+                    "site": "dewiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "dewikibooks": {
+                    "site": "dewikibooks",
+                    "title": "Regal:Physik",
+                    "badges": []
+                },
+                "dewikiquote": {
+                    "site": "dewikiquote",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "dewikisource": {
+                    "site": "dewikisource",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "diqwiki": {
+                    "site": "diqwiki",
+                    "title": "Fizik",
+                    "badges": []
+                },
+                "dsbwiki": {
+                    "site": "dsbwiki",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "dvwiki": {
+                    "site": "dvwiki",
+                    "title": "ފީޒިޔާއީ އިލްމު",
+                    "badges": []
+                },
+                "dzwiki": {
+                    "site": "dzwiki",
+                    "title": "དངོས་ཁམས་རིག་པ",
+                    "badges": []
+                },
+                "elwiki": {
+                    "site": "elwiki",
+                    "title": "Φυσική",
+                    "badges": []
+                },
+                "elwikiquote": {
+                    "site": "elwikiquote",
+                    "title": "Φυσική",
+                    "badges": []
+                },
+                "enwiki": {
+                    "site": "enwiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "enwikibooks": {
+                    "site": "enwikibooks",
+                    "title": "Subject:Physics",
+                    "badges": []
+                },
+                "enwikiquote": {
+                    "site": "enwikiquote",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "enwikisource": {
+                    "site": "enwikisource",
+                    "title": "Portal:Physics",
+                    "badges": []
+                },
+                "eowiki": {
+                    "site": "eowiki",
+                    "title": "Fiziko",
+                    "badges": []
+                },
+                "eowikiquote": {
+                    "site": "eowikiquote",
+                    "title": "Fiziko",
+                    "badges": []
+                },
+                "eswiki": {
+                    "site": "eswiki",
+                    "title": "Física",
+                    "badges": [
+                        "Q17437798"
+                    ]
+                },
+                "eswikibooks": {
+                    "site": "eswikibooks",
+                    "title": "Física",
+                    "badges": []
+                },
+                "eswikiquote": {
+                    "site": "eswikiquote",
+                    "title": "Física",
+                    "badges": []
+                },
+                "etwiki": {
+                    "site": "etwiki",
+                    "title": "Füüsika",
+                    "badges": []
+                },
+                "euwiki": {
+                    "site": "euwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "extwiki": {
+                    "site": "extwiki",
+                    "title": "Física",
+                    "badges": []
+                },
+                "fawiki": {
+                    "site": "fawiki",
+                    "title": "فیزیک",
+                    "badges": []
+                },
+                "fiu_vrowiki": {
+                    "site": "fiu_vrowiki",
+                    "title": "Füüsiga",
+                    "badges": []
+                },
+                "fiwiki": {
+                    "site": "fiwiki",
+                    "title": "Fysiikka",
+                    "badges": [
+                        "Q17437798"
+                    ]
+                },
+                "fowiki": {
+                    "site": "fowiki",
+                    "title": "Alisfrøði",
+                    "badges": []
+                },
+                "frrwiki": {
+                    "site": "frrwiki",
+                    "title": "Füsiik",
+                    "badges": []
+                },
+                "frwiki": {
+                    "site": "frwiki",
+                    "title": "Physique",
+                    "badges": []
+                },
+                "frwikibooks": {
+                    "site": "frwikibooks",
+                    "title": "Physique",
+                    "badges": []
+                },
+                "furwiki": {
+                    "site": "furwiki",
+                    "title": "Fisiche",
+                    "badges": []
+                },
+                "fywiki": {
+                    "site": "fywiki",
+                    "title": "Natuerkunde",
+                    "badges": []
+                },
+                "ganwiki": {
+                    "site": "ganwiki",
+                    "title": "物理學",
+                    "badges": []
+                },
+                "gawiki": {
+                    "site": "gawiki",
+                    "title": "Fisic",
+                    "badges": []
+                },
+                "gdwiki": {
+                    "site": "gdwiki",
+                    "title": "Fiosaig",
+                    "badges": []
+                },
+                "glwiki": {
+                    "site": "glwiki",
+                    "title": "Física",
+                    "badges": []
+                },
+                "gnwiki": {
+                    "site": "gnwiki",
+                    "title": "Mba'erekokuaa",
+                    "badges": []
+                },
+                "guwiki": {
+                    "site": "guwiki",
+                    "title": "ભૌતિકશાસ્ત્ર",
+                    "badges": []
+                },
+                "gvwiki": {
+                    "site": "gvwiki",
+                    "title": "Fishig",
+                    "badges": []
+                },
+                "hakwiki": {
+                    "site": "hakwiki",
+                    "title": "Vu̍t-lî-ho̍k",
+                    "badges": []
+                },
+                "hawwiki": {
+                    "site": "hawwiki",
+                    "title": "Kālaikūlohea",
+                    "badges": []
+                },
+                "hewiki": {
+                    "site": "hewiki",
+                    "title": "פיזיקה",
+                    "badges": []
+                },
+                "hifwiki": {
+                    "site": "hifwiki",
+                    "title": "Bhautik vigyan",
+                    "badges": []
+                },
+                "hiwiki": {
+                    "site": "hiwiki",
+                    "title": "भौतिक शास्त्र",
+                    "badges": []
+                },
+                "hrwiki": {
+                    "site": "hrwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "hsbwiki": {
+                    "site": "hsbwiki",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "htwiki": {
+                    "site": "htwiki",
+                    "title": "Fizik",
+                    "badges": []
+                },
+                "huwiki": {
+                    "site": "huwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "hywiki": {
+                    "site": "hywiki",
+                    "title": "Ֆիզիկա",
+                    "badges": []
+                },
+                "hywikiquote": {
+                    "site": "hywikiquote",
+                    "title": "Ֆիզիկա",
+                    "badges": []
+                },
+                "iawiki": {
+                    "site": "iawiki",
+                    "title": "Physica",
+                    "badges": []
+                },
+                "idwiki": {
+                    "site": "idwiki",
+                    "title": "Fisika",
+                    "badges": [
+                        "Q17437798"
+                    ]
+                },
+                "iewiki": {
+                    "site": "iewiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "igwiki": {
+                    "site": "igwiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "ilowiki": {
+                    "site": "ilowiki",
+                    "title": "Pisika",
+                    "badges": []
+                },
+                "iowiki": {
+                    "site": "iowiki",
+                    "title": "Fiziko",
+                    "badges": []
+                },
+                "iswiki": {
+                    "site": "iswiki",
+                    "title": "Eðlisfræði",
+                    "badges": []
+                },
+                "itwiki": {
+                    "site": "itwiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "itwikiquote": {
+                    "site": "itwikiquote",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "iuwiki": {
+                    "site": "iuwiki",
+                    "title": "ᐆᒫᑦᓱᓕᕆᓂᖅ/umatsuliriniq",
+                    "badges": []
+                },
+                "jawiki": {
+                    "site": "jawiki",
+                    "title": "物理学",
+                    "badges": []
+                },
+                "jawikibooks": {
+                    "site": "jawikibooks",
+                    "title": "物理学",
+                    "badges": []
+                },
+                "jawikiquote": {
+                    "site": "jawikiquote",
+                    "title": "物理学",
+                    "badges": []
+                },
+                "jbowiki": {
+                    "site": "jbowiki",
+                    "title": "termu'eske",
+                    "badges": []
+                },
+                "jvwiki": {
+                    "site": "jvwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "kawiki": {
+                    "site": "kawiki",
+                    "title": "ფიზიკა",
+                    "badges": []
+                },
+                "kgwiki": {
+                    "site": "kgwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "kiwiki": {
+                    "site": "kiwiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "kkwiki": {
+                    "site": "kkwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "klwiki": {
+                    "site": "klwiki",
+                    "title": "Uumaatsulerineq",
+                    "badges": []
+                },
+                "kmwiki": {
+                    "site": "kmwiki",
+                    "title": "រូបវិទ្យា",
+                    "badges": []
+                },
+                "knwiki": {
+                    "site": "knwiki",
+                    "title": "ಭೌತಶಾಸ್ತ್ರ",
+                    "badges": []
+                },
+                "kowiki": {
+                    "site": "kowiki",
+                    "title": "물리학",
+                    "badges": []
+                },
+                "kswiki": {
+                    "site": "kswiki",
+                    "title": "فیزیک",
+                    "badges": []
+                },
+                "kuwiki": {
+                    "site": "kuwiki",
+                    "title": "Fizîk",
+                    "badges": []
+                },
+                "kywiki": {
+                    "site": "kywiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "ladwiki": {
+                    "site": "ladwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "lawiki": {
+                    "site": "lawiki",
+                    "title": "Physica",
+                    "badges": []
+                },
+                "lbwiki": {
+                    "site": "lbwiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "lezwiki": {
+                    "site": "lezwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "lijwiki": {
+                    "site": "lijwiki",
+                    "title": "Fixica",
+                    "badges": []
+                },
+                "liwiki": {
+                    "site": "liwiki",
+                    "title": "Natuurkunde",
+                    "badges": []
+                },
+                "lmowiki": {
+                    "site": "lmowiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "lnwiki": {
+                    "site": "lnwiki",
+                    "title": "Fízíkí",
+                    "badges": []
+                },
+                "lowiki": {
+                    "site": "lowiki",
+                    "title": "ວັດຖຸວິທະຍາ",
+                    "badges": []
+                },
+                "lrcwiki": {
+                    "site": "lrcwiki",
+                    "title": "سئریشت دوٙنئسمأنی",
+                    "badges": []
+                },
+                "ltwiki": {
+                    "site": "ltwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "ltwikiquote": {
+                    "site": "ltwikiquote",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "lvwiki": {
+                    "site": "lvwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "maiwiki": {
+                    "site": "maiwiki",
+                    "title": "भौतिकशास्‍त्र",
+                    "badges": []
+                },
+                "map_bmswiki": {
+                    "site": "map_bmswiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "mdfwiki": {
+                    "site": "mdfwiki",
+                    "title": "Физиксь",
+                    "badges": []
+                },
+                "mgwiki": {
+                    "site": "mgwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "mhrwiki": {
+                    "site": "mhrwiki",
+                    "title": "Физике",
+                    "badges": []
+                },
+                "mkwiki": {
+                    "site": "mkwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "mlwiki": {
+                    "site": "mlwiki",
+                    "title": "ഭൗതികശാസ്ത്രം",
+                    "badges": []
+                },
+                "mnwiki": {
+                    "site": "mnwiki",
+                    "title": "Физик",
+                    "badges": []
+                },
+                "mrwiki": {
+                    "site": "mrwiki",
+                    "title": "भौतिकशास्त्र",
+                    "badges": []
+                },
+                "mswiki": {
+                    "site": "mswiki",
+                    "title": "Fizik",
+                    "badges": []
+                },
+                "mwlwiki": {
+                    "site": "mwlwiki",
+                    "title": "Física",
+                    "badges": []
+                },
+                "mywiki": {
+                    "site": "mywiki",
+                    "title": "ရူပဗေဒ",
+                    "badges": []
+                },
+                "mznwiki": {
+                    "site": "mznwiki",
+                    "title": "فیزیک",
+                    "badges": []
+                },
+                "nahwiki": {
+                    "site": "nahwiki",
+                    "title": "Iuhcāyōtl",
+                    "badges": []
+                },
+                "napwiki": {
+                    "site": "napwiki",
+                    "title": "Físeca",
+                    "badges": []
+                },
+                "nds_nlwiki": {
+                    "site": "nds_nlwiki",
+                    "title": "Netuurkunde",
+                    "badges": []
+                },
+                "ndswiki": {
+                    "site": "ndswiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "newwiki": {
+                    "site": "newwiki",
+                    "title": "भौतिक शास्त्र",
+                    "badges": []
+                },
+                "nlwiki": {
+                    "site": "nlwiki",
+                    "title": "Natuurkunde",
+                    "badges": []
+                },
+                "nlwikibooks": {
+                    "site": "nlwikibooks",
+                    "title": "Fysica",
+                    "badges": []
+                },
+                "nnwiki": {
+                    "site": "nnwiki",
+                    "title": "Fysikk",
+                    "badges": []
+                },
+                "novwiki": {
+                    "site": "novwiki",
+                    "title": "Fisike",
+                    "badges": []
+                },
+                "nowiki": {
+                    "site": "nowiki",
+                    "title": "Fysikk",
+                    "badges": []
+                },
+                "nrmwiki": {
+                    "site": "nrmwiki",
+                    "title": "Phŷsique",
+                    "badges": []
+                },
+                "nsowiki": {
+                    "site": "nsowiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "ocwiki": {
+                    "site": "ocwiki",
+                    "title": "Fisica",
+                    "badges": []
+                },
+                "omwiki": {
+                    "site": "omwiki",
+                    "title": "Fiiziksii",
+                    "badges": []
+                },
+                "orwiki": {
+                    "site": "orwiki",
+                    "title": "ପଦାର୍ଥ ବିଜ୍ଞାନ",
+                    "badges": []
+                },
+                "oswiki": {
+                    "site": "oswiki",
+                    "title": "Физикæ",
+                    "badges": []
+                },
+                "pamwiki": {
+                    "site": "pamwiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "pawiki": {
+                    "site": "pawiki",
+                    "title": "ਭੌਤਿਕ ਵਿਗਿਆਨ",
+                    "badges": []
+                },
+                "pcdwiki": {
+                    "site": "pcdwiki",
+                    "title": "Fisike",
+                    "badges": []
+                },
+                "pihwiki": {
+                    "site": "pihwiki",
+                    "title": "Fisiks",
+                    "badges": []
+                },
+                "plwiki": {
+                    "site": "plwiki",
+                    "title": "Fizyka",
+                    "badges": []
+                },
+                "plwikiquote": {
+                    "site": "plwikiquote",
+                    "title": "Fizyka",
+                    "badges": []
+                },
+                "pmswiki": {
+                    "site": "pmswiki",
+                    "title": "Fìsica",
+                    "badges": []
+                },
+                "pnbwiki": {
+                    "site": "pnbwiki",
+                    "title": "فزکس",
+                    "badges": []
+                },
+                "pswiki": {
+                    "site": "pswiki",
+                    "title": "پنځپوهنه",
+                    "badges": []
+                },
+                "ptwiki": {
+                    "site": "ptwiki",
+                    "title": "Física",
+                    "badges": [
+                        "Q17437796"
+                    ]
+                },
+                "ptwikibooks": {
+                    "site": "ptwikibooks",
+                    "title": "Física",
+                    "badges": []
+                },
+                "ptwikiquote": {
+                    "site": "ptwikiquote",
+                    "title": "Física",
+                    "badges": []
+                },
+                "quwiki": {
+                    "site": "quwiki",
+                    "title": "Pachaykamay",
+                    "badges": []
+                },
+                "roa_rupwiki": {
+                    "site": "roa_rupwiki",
+                    "title": "Fizicâ",
+                    "badges": []
+                },
+                "rowiki": {
+                    "site": "rowiki",
+                    "title": "Fizică",
+                    "badges": []
+                },
+                "ruewiki": {
+                    "site": "ruewiki",
+                    "title": "Фізіка",
+                    "badges": []
+                },
+                "ruwiki": {
+                    "site": "ruwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "ruwikibooks": {
+                    "site": "ruwikibooks",
+                    "title": "Полка:Физика",
+                    "badges": []
+                },
+                "ruwikiquote": {
+                    "site": "ruwikiquote",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "ruwikisource": {
+                    "site": "ruwikisource",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "sahwiki": {
+                    "site": "sahwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "sawiki": {
+                    "site": "sawiki",
+                    "title": "भौतिकशास्त्रम्",
+                    "badges": []
+                },
+                "scnwiki": {
+                    "site": "scnwiki",
+                    "title": "Fìsica",
+                    "badges": []
+                },
+                "scowiki": {
+                    "site": "scowiki",
+                    "title": "Naitural philosophy",
+                    "badges": []
+                },
+                "scwiki": {
+                    "site": "scwiki",
+                    "title": "Fìsica",
+                    "badges": []
+                },
+                "shwiki": {
+                    "site": "shwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "simplewiki": {
+                    "site": "simplewiki",
+                    "title": "Physics",
+                    "badges": []
+                },
+                "siwiki": {
+                    "site": "siwiki",
+                    "title": "භෞතික විද්‍යාව",
+                    "badges": []
+                },
+                "skwiki": {
+                    "site": "skwiki",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "skwikiquote": {
+                    "site": "skwikiquote",
+                    "title": "Fyzika",
+                    "badges": []
+                },
+                "slwiki": {
+                    "site": "slwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "slwikiquote": {
+                    "site": "slwikiquote",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "smwiki": {
+                    "site": "smwiki",
+                    "title": "Fisiki",
+                    "badges": []
+                },
+                "snwiki": {
+                    "site": "snwiki",
+                    "title": "Fundoyetsimba",
+                    "badges": []
+                },
+                "sowiki": {
+                    "site": "sowiki",
+                    "title": "Fiisigis",
+                    "badges": []
+                },
+                "sqwiki": {
+                    "site": "sqwiki",
+                    "title": "Fizika",
+                    "badges": [
+                        "Q17437796"
+                    ]
+                },
+                "sqwikibooks": {
+                    "site": "sqwikibooks",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "srnwiki": {
+                    "site": "srnwiki",
+                    "title": "Sabi fu natru",
+                    "badges": []
+                },
+                "srwiki": {
+                    "site": "srwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "stqwiki": {
+                    "site": "stqwiki",
+                    "title": "Physik",
+                    "badges": []
+                },
+                "stwiki": {
+                    "site": "stwiki",
+                    "title": "Fisiksi",
+                    "badges": []
+                },
+                "suwiki": {
+                    "site": "suwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "svwiki": {
+                    "site": "svwiki",
+                    "title": "Fysik",
+                    "badges": []
+                },
+                "swwiki": {
+                    "site": "swwiki",
+                    "title": "Fizikia",
+                    "badges": []
+                },
+                "szlwiki": {
+                    "site": "szlwiki",
+                    "title": "Fizyka",
+                    "badges": []
+                },
+                "tawiki": {
+                    "site": "tawiki",
+                    "title": "இயற்பியல்",
+                    "badges": []
+                },
+                "tewiki": {
+                    "site": "tewiki",
+                    "title": "భౌతిక శాస్త్రము",
+                    "badges": []
+                },
+                "tgwiki": {
+                    "site": "tgwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "thwiki": {
+                    "site": "thwiki",
+                    "title": "ฟิสิกส์",
+                    "badges": []
+                },
+                "tkwiki": {
+                    "site": "tkwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "tlwiki": {
+                    "site": "tlwiki",
+                    "title": "Pisika",
+                    "badges": []
+                },
+                "trwiki": {
+                    "site": "trwiki",
+                    "title": "Fizik",
+                    "badges": []
+                },
+                "ttwiki": {
+                    "site": "ttwiki",
+                    "title": "Физика",
+                    "badges": []
+                },
+                "ugwiki": {
+                    "site": "ugwiki",
+                    "title": "فىزىكا",
+                    "badges": []
+                },
+                "ukwiki": {
+                    "site": "ukwiki",
+                    "title": "Фізика",
+                    "badges": [
+                        "Q17437798"
+                    ]
+                },
+                "ukwikiquote": {
+                    "site": "ukwikiquote",
+                    "title": "Фізика",
+                    "badges": []
+                },
+                "urwiki": {
+                    "site": "urwiki",
+                    "title": "طبیعیات",
+                    "badges": []
+                },
+                "uzwiki": {
+                    "site": "uzwiki",
+                    "title": "Fizika",
+                    "badges": []
+                },
+                "vecwiki": {
+                    "site": "vecwiki",
+                    "title": "Fìxica",
+                    "badges": []
+                },
+                "viwiki": {
+                    "site": "viwiki",
+                    "title": "Vật lý học",
+                    "badges": [
+                        "Q17437796"
+                    ]
+                },
+                "vowiki": {
+                    "site": "vowiki",
+                    "title": "Füsüd",
+                    "badges": []
+                },
+                "warwiki": {
+                    "site": "warwiki",
+                    "title": "Fisika",
+                    "badges": []
+                },
+                "wawiki": {
+                    "site": "wawiki",
+                    "title": "Fizike",
+                    "badges": []
+                },
+                "wowiki": {
+                    "site": "wowiki",
+                    "title": "Jëmm",
+                    "badges": []
+                },
+                "wuuwiki": {
+                    "site": "wuuwiki",
+                    "title": "物理学",
+                    "badges": []
+                },
+                "xalwiki": {
+                    "site": "xalwiki",
+                    "title": "Бодьзүлһн",
+                    "badges": []
+                },
+                "xhwiki": {
+                    "site": "xhwiki",
+                    "title": "Ifiziki",
+                    "badges": []
+                },
+                "xmfwiki": {
+                    "site": "xmfwiki",
+                    "title": "ფიზიკა",
+                    "badges": []
+                },
+                "yiwiki": {
+                    "site": "yiwiki",
+                    "title": "פיזיק",
+                    "badges": []
+                },
+                "yowiki": {
+                    "site": "yowiki",
+                    "title": "Físíksì",
+                    "badges": []
+                },
+                "zeawiki": {
+                    "site": "zeawiki",
+                    "title": "Natuurkunde",
+                    "badges": []
+                },
+                "zh_classicalwiki": {
+                    "site": "zh_classicalwiki",
+                    "title": "物理",
+                    "badges": []
+                },
+                "zh_min_nanwiki": {
+                    "site": "zh_min_nanwiki",
+                    "title": "Bu̍t-lí-ha̍k",
+                    "badges": []
+                },
+                "zh_yuewiki": {
+                    "site": "zh_yuewiki",
+                    "title": "物理",
+                    "badges": []
+                },
+                "zhwiki": {
+                    "site": "zhwiki",
+                    "title": "物理学",
+                    "badges": [
+                        "Q17437798"
+                    ]
+                },
+                "zhwikibooks": {
+                    "site": "zhwikibooks",
+                    "title": "物理学",
+                    "badges": []
+                },
+                "zhwikiquote": {
+                    "site": "zhwikiquote",
+                    "title": "物理学",
+                    "badges": []
+                }
+            }
+        }
+    },
+    "success": 1
+}

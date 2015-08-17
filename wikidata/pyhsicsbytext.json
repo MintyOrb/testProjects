@@ -1,0 +1,204 @@
+{
+    "searchinfo": {
+        "search": "Physics"
+    },
+    "search": [
+        {
+            "id": "Q413",
+            "url": "//www.wikidata.org/wiki/Q413",
+            "label": "physics",
+            "description": "study of matter and its motion, along with related concepts such as energy and force",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "physics"
+            }
+        },
+        {
+            "id": "Q1051198",
+            "url": "//www.wikidata.org/wiki/Q1051198",
+            "label": "Physics",
+            "description": "work of Aristoteles",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q1219728",
+            "url": "//www.wikidata.org/wiki/Q1219728",
+            "label": "Physics",
+            "description": "Wikimedia disambiguation page",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q4046920",
+            "url": "//www.wikidata.org/wiki/Q4046920",
+            "label": "Physics",
+            "description": "journal",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q19035381",
+            "url": "//www.wikidata.org/wiki/Q19035381",
+            "label": "Physics",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q18890673",
+            "url": "//www.wikidata.org/wiki/Q18890673",
+            "label": "Physics",
+            "description": "painting by Edvard Munch",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q7189681",
+            "url": "//www.wikidata.org/wiki/Q7189681",
+            "label": "Physics",
+            "description": "instrumental band from San Diego, California, USA",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics"
+            }
+        },
+        {
+            "id": "Q62505",
+            "url": "//www.wikidata.org/wiki/Q62505",
+            "label": "physics engine",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "physics engine"
+            }
+        },
+        {
+            "id": "Q5615097",
+            "url": "//www.wikidata.org/wiki/Q5615097",
+            "label": "physics of plasma",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "physics of plasma"
+            }
+        },
+        {
+            "id": "Q1088523",
+            "url": "//www.wikidata.org/wiki/Q1088523",
+            "label": "Physics Today",
+            "description": "scientific journal",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics Today"
+            }
+        },
+        {
+            "id": "Q1659906",
+            "url": "//www.wikidata.org/wiki/Q1659906",
+            "label": "Physics Letters",
+            "description": "journal",
+            "match": {
+                "type": "alias",
+                "language": "en",
+                "text": "Physics Letters. Section A: General, Atomic and Solid State Physics"
+            },
+            "aliases": [
+                "Physics Letters. Section A: General, Atomic and Solid State Physics"
+            ]
+        },
+        {
+            "id": "Q2599934",
+            "url": "//www.wikidata.org/wiki/Q2599934",
+            "label": "Physics beyond the Standard Model",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics beyond the Standard Model"
+            }
+        },
+        {
+            "id": "Q1888743",
+            "url": "//www.wikidata.org/wiki/Q1888743",
+            "label": "Uspekhi Fizicheskikh Nauk",
+            "description": "journal",
+            "match": {
+                "type": "alias",
+                "language": "en",
+                "text": "Physics - Uspekhi"
+            },
+            "aliases": [
+                "Physics - Uspekhi"
+            ]
+        },
+        {
+            "id": "Q1989782",
+            "url": "//www.wikidata.org/wiki/Q1989782",
+            "label": "Physics World",
+            "description": "journal",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics World"
+            }
+        },
+        {
+            "id": "Q1457979",
+            "url": "//www.wikidata.org/wiki/Q1457979",
+            "label": "Physics and Astronomy Classification Scheme",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics and Astronomy Classification Scheme"
+            }
+        },
+        {
+            "id": "Q1061899",
+            "url": "//www.wikidata.org/wiki/Q1061899",
+            "label": "Physics Analysis Workstation",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics Analysis Workstation"
+            }
+        },
+        {
+            "id": "Q17612918",
+            "url": "//www.wikidata.org/wiki/Q17612918",
+            "label": "Physics Nobel Prize awarded for insights into light",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics Nobel Prize awarded for insights into light"
+            }
+        },
+        {
+            "id": "Q7189705",
+            "url": "//www.wikidata.org/wiki/Q7189705",
+            "label": "Physics of the Impossible",
+            "match": {
+                "type": "label",
+                "language": "en",
+                "text": "Physics of the Impossible"
+            }
+        }
+    ],
+    "success": 1
+}
