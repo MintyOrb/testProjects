@@ -1,0 +1,26 @@
+/* position dots up a bit */
+.flickity-page-dots {
+  bottom: -22px;
+}
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 4px;
+  width: 40px;
+  margin: 0;
+  border-radius: 0;
+}
+img {
+	height:200px;
+	margin: 200px 100px 50px 100px;
+}
+h1 {
+	font-weight: 200;
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+}
+.cell {
+	height:75vh;
+}
+/** {
+	outline: 1px solid black;
+}*/
