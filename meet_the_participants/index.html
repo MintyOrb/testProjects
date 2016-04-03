@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>howdy howdy howdy</title>
+	<link rel="stylesheet" type="text/css" href="introcss.css">
+</head>
+<body>
+	<div class="grid" id="cont">
+	  <div v-for="participant in participants" class="grid-item">
+	    {{participant["Attendee: First Name"]}} {{participant["Attendee: Last Name"]}}
+
+	    <div class="pic-wrap" v-if="participant['Photo']">
+		    <img v-bind:src="participant['Photo']">
+	    </div>
+
+	    <div class="pic-wrap" v-if="!participant['Photo']">
+		    :(
+	    </div>
+	    <span>wompers</span>
+	  </div>
+	</div>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
+<script type="text/javascript" src="vue.js"></script>
+
+<script type="text/javascript" src="marchepparticipants.js"></script>
+<script type="text/javascript" src="isocontrol.js"></script>
+<script type="text/javascript" src="vuestuff.js"></script>
+</html>

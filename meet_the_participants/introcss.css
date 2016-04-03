@@ -1,0 +1,16 @@
+/** { outline: 1px black solid }*/
+
+.grid-item {
+	/*width: 25%;*/
+	width: 300px;
+}
+.grid-item img {
+	display: block;
+	height: 250px;
+	margin: auto;
+}
+
+.pic-wrap {
+	overflow: hidden;
+	max-height: 250px;
+}
