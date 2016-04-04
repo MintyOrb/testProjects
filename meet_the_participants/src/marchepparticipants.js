@@ -3257,7 +3257,7 @@ var participants = [
     "Ethnicity": "Asian / Pacific Islander",
     "Expectations": "Learn about making my organization more innovative;Identify a new startup or entrepreneurial opportunity;Become involved in solving a Global Grand Challenge I care about",
     "Exponential Technologies": "Energy and Environmental Systems",
-    "FirstName": "gagan",
+    "FirstName": "Gagan",
     "Future Headline": "HOW INNOVATIVE  SOLUTIONS  IN AGRICULTURE LIFT  5 MILLON PEOPLE ABOVE POVERTY LINE",
     "Gender": 0,
     "Global Grand Challenges": "Poverty/Prosperity",

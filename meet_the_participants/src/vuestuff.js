@@ -77,10 +77,7 @@ var $grid = $('.grid').isotope({
       getSortData: {
         id: '.id parseInt',
         name: '.name'
-      },
-      filter: function() {
-      return qsRegex ? $(this).text().match( qsRegex ) : true;
-    }
+      }
 });
 // sort items on button click
 $('.sort-by-button-group').on( 'click', 'button', function() {
@@ -97,8 +94,6 @@ $('.test2').on( 'click',function() {
 $grid.imagesLoaded().progress( function() {
   $grid.isotope('layout');
 });
-
-
 
 // // append
 // // jQuery

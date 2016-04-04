@@ -1,0 +1,34 @@
+/** { outline: 1px black solid }*/
+
+.grid-item {
+	/*width: 25%;*/
+	width: 300px;
+}
+/*.grid-item img {
+	display: block;
+	max-height: 250px;
+	margin: auto;
+	width: 100%;
+}*/
+
+.pic-wrap {
+	overflow: hidden;
+	max-height: 250px;
+}
+/*
+.grid {
+	width: 100%;
+	display: block;
+	margin: auto;
+}*/
+
+.grid{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+ }
+
+ .name {
+ 	text-shadow: 2px 2px 10px black;
+ }

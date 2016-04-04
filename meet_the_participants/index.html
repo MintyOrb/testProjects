@@ -1,30 +1,84 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<title>howdy howdy howdy</title>
-	<link rel="stylesheet" type="text/css" href="introcss.css">
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/src/introcss.css">
+	<!-- endinject -->
+
+	<link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.css">
+	<link rel="stylesheet" href="/libs/adaptive-modal.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- <link rel="stylesheet" href="/node_modules/materialize-css/dist/font/material-design-icons/Material-Design-Icons.woff2"> -->
+
+
+
 </head>
 <body>
+	<div class="button-group sort-by-button-group">
+	  <button data-sort-by="original-order">original order</button>
+	  <button data-sort-by="name">name</button>
+	  <button data-sort-by="symbol">symbol</button>
+	  <button data-sort-by="number">number</button>
+	  <button data-sort-by="weight">weight</button>
+	  <button data-sort-by="category">category</button>
+	</div>
+ <button class="waves-effect waves-light btn test">A-Z</button>
+ <button class="waves-effect waves-light btn test2">Z-A</button>
+ <p><input type="text" class="quicksearch" placeholder="Search" /></p>
+
+	<!-- country filter list -->
+ 	<!-- <div>
+ 		<div v-for="country in countries" class="grid-item card">
+ 		</div>
+ 	</div> -->
+
 	<div class="grid" id="cont">
-	  <div v-for="participant in participants" class="grid-item">
-	    {{participant["Attendee: First Name"]}} {{participant["Attendee: Last Name"]}}
 
-	    <div class="pic-wrap" v-if="participant['Photo']">
-		    <img v-bind:src="participant['Photo']">
-	    </div>
+	  <div v-for="participant in participants" class="grid-item card">
+		  <div class="card-image waves-effect waves-block waves-light">
 
-	    <div class="pic-wrap" v-if="!participant['Photo']">
-		    :(
-	    </div>
-	    <span>wompers</span>
+		    <div v-if="participant['Photo']">
+			    <img class="activator" v-bind:src="participant['Photo']">
+		    </div>
+
+		    <div v-if="!participant['Photo']">
+			    <img class="activator" src="/src/ProfilePlaceholderSuit.png">
+		    </div>
+		    <span class="card-title name"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
+		  </div>
+		  <div class="card-content">
+		  	<span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+		  	<p>{{participant["Badge Job Title"]}},</p>
+		  	<p>{{participant["Badge Company"]}}</p>
+		  </div>
+
+		  <div class="card-reveal">
+	        <span class="card-title grey-text text-darken-4">Biography<i class="material-icons right">close</i></span>
+		  	<p>{{participant["Biographic Sketch"]}}</p>
+		  </div>
+
+		   <a href="#" data-toggle="adaptive-modal" data-title="<p>{{participant['Biographic Sketch']}}</p>" data-am-custom-bgcolor="red">try me!</a>
+
 	  </div>
+
 	</div>
 
 </body>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
-<script type="text/javascript" src="vue.js"></script>
 
-<script type="text/javascript" src="marchepparticipants.js"></script>
-<script type="text/javascript" src="isocontrol.js"></script>
-<script type="text/javascript" src="vuestuff.js"></script>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script src="/libs/jquery.adaptive-modal.js"></script>
+	<script src="/node_modules/isotope-layout/dist/isotope.pkgd.js"></script>
+	<script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+	<script src="/node_modules/vue/dist/vue.js"></script>
+	<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
+
+	<!-- inject:js -->
+	<script src="/src/isocontrol.js"></script>
+	<script src="/src/marchepparticipants.js"></script>
+	<script src="/src/vue.js"></script>
+	<script src="/src/vuestuff.js"></script>
+	<!-- endinject -->
+
 </html>
