@@ -30,51 +30,58 @@
   </div>
 
 	<div id="cont">
+
 		<br>
 
 		<button v-on:click="ascending('name')" class="waves-effect waves-light btn">A-Z</button>
 		<button v-on:click="decending('name')" class="waves-effect waves-light btn">Z-A</button>
 		<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle</button>
-		<p><input type="text" class="quicksearch" placeholder="Search" /></p>
-
+		<p><input type="text" v-model="searchString" v-on:keyup="filterText(searchString) | debounce 200" placeholder="Search" /></p>
 		  <ul class="collapsible popout"  data-collapsible="accordion">
 		    <li>
 		      <div class="collapsible-header"><i class="material-icons">language</i>Country</div>
 		      <div class="collapsible-body">
 		      	<div class="countryBox" action="#">
-				    <span v-for="country in computedFilters.countries">
+				    <span v-for="country in computedFilters.countries" v-if="country.name!==0">
 				      <input type="checkbox" id="{{country.name}}" value="{{country.name}}" v-model="currentFilters.countries"/>
 				      <label for="{{country.name}}">{{country.name}} ({{country.count}})</label>
 				    </span>
 				</div>
-				<button v-on:click="selectAll('name')" class="waves-effect waves-light btn">Select All</button>
-				<button v-on:click="deselectAll('name')" class="waves-effect waves-light btn">Clear All</button>
+				<div class="center">
+					<button v-on:click="selectAll('countries')" class="waves-effect waves-light btn selectBtns">Select All</button>
+					<button v-on:click="deselectAll('countries')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+		      	</div>
 		      </div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">place</i>Industry</div>
+		      <div class="collapsible-header"><i class="material-icons">work</i>Industry</div>
 		      <div class="collapsible-body">
 		      	<div class="countryBox" action="#">
-				    <span v-for="sector in computedFilters.sector">
-				      <input type="checkbox" id="{{sector.name}}" value="{{sector.name}}" v-model="currentFilters.sectors"/>
+				    <span  v-for="sector in computedFilters.sector" v-if="sector.name!==0">
+				      <input type="checkbox" id="{{sector.name}}" value="{{sector.name}}" v-model="currentFilters.sector"/>
 				      <label for="{{sector.name}}">{{sector.name}} ({{sector.count}})</label>
 				    </span>
 				</div>
-				<button v-on:click="selectAll('name')" class="waves-effect waves-light btn">Select All</button>
-				<button v-on:click="deselectAll('name')" class="waves-effect waves-light btn">Clear All</button>
+				<div class="center">
+					<button v-on:click="selectAll('sector')" class="waves-effect waves-light btn selectBtns">Select All</button>
+					<button v-on:click="deselectAll('sector')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+		      	</div>
 		      </div>
 		    </li>
 		    <li>
-		      <div class="collapsible-header"><i class="material-icons">whatshot</i>Interest (Exponential Tech and GGCs)</div>
+		      <div class="collapsible-header"><i class="material-icons">perm_identity</i>Interest (Exponential Tech and GGCs)</div>
 		      <div class="collapsible-body">
 		      	<div class="countryBox" action="#">
-				    <span v-for="companySize in computedFilters.companySize">
+				    <span  v-for="companySize in computedFilters.companySize" v-if="companySize.name!==0">
+				      <input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
 				      <input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
 				      <label for="{{companySize.name}}">{{companySize.name}} ({{companySize.count}})</label>
 				    </span>
 				</div>
-				<button v-on:click="selectAll('name')" class="waves-effect waves-light btn">Select All</button>
-				<button v-on:click="deselectAll('name')" class="waves-effect waves-light btn">Clear All</button>
+				<div class="center">
+					<button v-on:click="selectAll('companySize')" class="waves-effect waves-light btn selectBtns">Select All</button>
+					<button v-on:click="deselectAll('companySize')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+		      	</div>
 		      </div>
 		    </li>
 		  </ul>

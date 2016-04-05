@@ -35,3 +35,7 @@
  .countryBox span {
  	width: 250px;
  }
+
+.selectBtns {
+	margin: 20px;
+}

@@ -6,7 +6,7 @@ var personContainer = new Vue({
     participants: participants,
     currentFilters: {
         countries: [],
-        sectors: [],
+        sector: [],
         tech: [],
         ggc: [],
         companySize: []
@@ -24,11 +24,28 @@ var personContainer = new Vue({
       "Exponential Technologies",
       "Global Grand Challenges",
       "Company Size"
+    ],
+    searchTextFields: [
+      "Biographic Sketch",
+      "Badge Citizenship",
+      "Company Sector",
+      "Exponential Technologies",
+      "Global Grand Challenges",
+      "Company Size",
+      "Attendee Job Function",
+      "Badge Job Title",
+      "Badge Company",
+      "Gender",
+      "Interested In",
+      "Inspired by",
+      "What is the Biggest Opportunity",
+      "What is the Biggest Problem",
+      "Expectations",
     ]
   },
   ready: function () {
-    grid = document.querySelector('.grid');
-    var _iso = this._iso = new Isotope(grid, {
+    this.grid = document.querySelector('.grid');
+    var _iso = this._iso = new Isotope(this.grid, {
       layoutMode: 'masonry',
       itemSelector: '.grid-item',
       masonry: {
@@ -41,7 +58,7 @@ var personContainer = new Vue({
     });
 
     // arrange when each photo is loaded
-    var imgLoad = imagesLoaded( grid );
+    var imgLoad = imagesLoaded( this.grid );
     imgLoad.on( 'progress', function( instance, image ) {
       _iso.arrange();
     });
@@ -51,9 +68,7 @@ var personContainer = new Vue({
     currentFilters: {
       deep: true,
       handler: function () {
-        console.log(this.currentFilters)
-        console.log(this.allFilters)
-      this.setFilters();
+        this.setFilters();
       }
     }
   },
@@ -72,6 +87,14 @@ var personContainer = new Vue({
       this._iso.arrange({filter: filtString});
       return filtString
     },
+    filterText: function (searchString){
+      var searchRegEx = new RegExp( searchString, 'gi');
+      console.log(searchRegEx ? $('.grid').text().match(searchRegEx) : true);
+      this._iso.arrange({filter: function(){
+        return searchRegEx ? $('.grid').text().match(searchRegEx) : true;
+      }});
+      return searchString
+    },
     getPersonsFilters: function(person) {
       var filtString = "";
       for (var filter = this.filterFields.length - 1; filter >= 0; filter--) {
@@ -80,6 +103,26 @@ var personContainer = new Vue({
         }
       }
       return filtString
+    },
+    selectAll: function(type){
+      for (var option = this.allFilters[type].length - 1; option >= 0; option--) {
+        var found = false;
+        for (var index = this.currentFilters[type].length - 1; index >= 0; index--) {
+          if(this.currentFilters[type][index].name == this.allFilters[type][option].name){
+            found = true;
+            console.log("found!")
+            break
+          }
+        }
+        if(!found) {
+          console.log('not found . trying to ad.')
+          console.log(this.allFilters[type][option])
+          this.currentFilters[type].push(this.allFilters[type][option].name)
+        }
+      }
+    },
+    deselectAll: function(type){
+      this.currentFilters[type] = [];
     },
     shuffle: function () {
       this._iso.shuffle()
@@ -121,12 +164,20 @@ var personContainer = new Vue({
   },
   computed: {
     computedFilters: function(){
+      console.log('computed filters') // called everytime enter new text box?
       for (var person = this.participants.length - 1; person >= 0; person--) {
         for (var filter = this.filterFields.length - 1; filter >= 0; filter--) {
           this.buildFilters(this.filterFields[filter], Object.keys(this.allFilters)[filter], this.allFilters, person)
         }
       };
       return this.allFilters
-    }
+    },
+    // textFilter: function(person){
+    //   for (var field = this.searchTextFields.length - 1; field >= 0; field--) {
+    //     person.textFilter += " " + person[this.searchTextFields[field]];
+    //   }
+    //   console.log(person.textFilter)
+    //   return person.textFilter;
+    // }
   }
 });
