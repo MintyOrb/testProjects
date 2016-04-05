@@ -1,9 +1,10 @@
 /** { outline: 1px black solid }*/
-.html {
-	font-size: 14px;
+.title {
+	margin-right: 20px;
+	margin-left: 20px;
 }
 .grid-item {
-	width: 300px;
+	width: 310px;
 }
 
 .pic-wrap {
@@ -25,9 +26,7 @@
  .jobtitle {
  	font-weight: bold;
  }
-  .company {
- 	font-weight: 300;
- }
+
  .countryBox {
  	margin: 25px;
  	display: flex;
@@ -40,6 +39,15 @@
 
 .selectBtns {
 	margin: 20px;
+}
+
+.scrollup {
+    position: fixed;
+    bottom: -10px;
+    right: 20px;
+    display: none;
+    color: black;
+    z-index: 100;
 }
 
 @media (min-width:20em) { /* smartphones, iPhone, portrait 480x320 phones */ }

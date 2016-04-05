@@ -11,13 +11,6 @@ var personContainer = new Vue({
         ggc: [],
         companySize: []
     },
-    allFilters: {
-        countries: [],
-        sector: [],
-        tech: [],
-        ggc: [],
-        companySize: []
-    },
     filterFields: [
       "Badge Citizenship",
       "Company Sector",
@@ -41,7 +34,8 @@ var personContainer = new Vue({
       "What is the Biggest Opportunity",
       "What is the Biggest Problem",
       "Expectations",
-    ]
+    ],
+    up: false
   },
   ready: function () {
     this.grid = document.querySelector('.grid');
@@ -89,9 +83,8 @@ var personContainer = new Vue({
     },
     filterText: function (searchString){
       var searchRegEx = new RegExp( searchString, 'gi');
-      console.log(searchRegEx ? $('.grid').text().match(searchRegEx) : true);
       this._iso.arrange({filter: function(){
-        return searchRegEx ? $('.grid').text().match(searchRegEx) : true;
+        return searchRegEx ? $(this).text().match(searchRegEx) : true;
       }});
       return searchString
     },
@@ -133,12 +126,14 @@ var personContainer = new Vue({
       })
   	},
     ascending: function (by) {
+      this.up = true;
       this._iso.arrange({
       	sortBy: by,
         sortAscending: true
       })
   	},
     decending: function (by) {
+      this.up = false;
       this._iso.arrange({
       	sortBy: by,
         sortAscending: false
@@ -164,12 +159,20 @@ var personContainer = new Vue({
   },
   computed: {
     computedFilters: function(){
+      var allFilters = {
+        countries: [],
+        sector: [],
+        tech: [],
+        ggc: [],
+        companySize: []
+      }
       console.log('computed filters') // called everytime enter new text box?
       for (var person = this.participants.length - 1; person >= 0; person--) {
         for (var filter = this.filterFields.length - 1; filter >= 0; filter--) {
-          this.buildFilters(this.filterFields[filter], Object.keys(this.allFilters)[filter], this.allFilters, person)
+          this.buildFilters(this.filterFields[filter], Object.keys(allFilters)[filter], allFilters, person)
         }
       };
+      this.allFilters = allFilters
       return this.allFilters
     },
     // textFilter: function(person){
@@ -180,4 +183,24 @@ var personContainer = new Vue({
     //   return person.textFilter;
     // }
   }
+});
+
+
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 1200) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
 });
