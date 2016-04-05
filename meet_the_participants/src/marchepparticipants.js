@@ -403,7 +403,7 @@ var participants = [
     "Notes": "Rollover application from Dec to March.  Interesting experience and underrepresented both in industry and regionally.",
     "Other Social Profile": 0,
     "Passion and Perspective": 3,
-    "Photo": "http://cdn.singularityu.org/wp-content/themes/singularityu/images/ep/5623782716506-Zaal Ibrahim Photo.jpg",
+    "Photo": "http://cdn.singularityu.org/wp-content/themes/singularityu/images/ep/5623782716506-Zaal%20Ibrahim%20Photo.jpg",
     "Pre-Arrival Survey URL": "http://singularityu.org/executive-program/pre-arrival-survey/?id=a0UF000000aPmmj",
     "Question 2": "I would like to understand the short to medium term implications of improving efficiencies on resource availability and sustainability.",
     "Question 1": "I would like to better understand the economic impact of automation measures on employment and how to create a system that transitions existing labor from the status quo to an automated future where economic opportunities will be widely available and more evenly distributed.",
