@@ -108,10 +108,10 @@
 										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
 										<label for="{{ggc.name}}">{{ggc.name}} ({{ggc.count}})</label>
 									</span>
-									<div class="center">
-										<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
-										<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
-									</div>
+								</div>
+								<div class="center">
+									<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+									<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
 								</div>
 							</div>
 						</div>
@@ -126,10 +126,10 @@
 										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
 										<label for="{{tech.name}}">{{tech.name}} ({{tech.count}})</label>
 									</span>
-									<div class="center">
-										<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
-										<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
-									</div>
+								</div>
+								<div class="center">
+									<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+									<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
 								</div>
 							</div>
 						</div>
