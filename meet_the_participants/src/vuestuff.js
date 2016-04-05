@@ -7,16 +7,18 @@ var personContainer = new Vue({
     currentFilters: {
         countries: [],
         sector: [],
-        tech: [],
-        ggc: [],
-        companySize: []
+        techs: [],
+        ggcs: [],
+        companySize: [],
+        expectations: []
     },
     filterFields: [
       "Badge Citizenship",
       "Company Sector",
       "Exponential Technologies",
       "Global Grand Challenges",
-      "Company Size"
+      "Company Size",
+      "Expectations"
     ],
     searchTextFields: [
       "Biographic Sketch",
@@ -162,9 +164,10 @@ var personContainer = new Vue({
       var allFilters = {
         countries: [],
         sector: [],
-        tech: [],
-        ggc: [],
-        companySize: []
+        techs: [],
+        ggcs: [],
+        companySize: [],
+        expectations: []
       }
       console.log('computed filters') // called everytime enter new text box?
       for (var person = this.participants.length - 1; person >= 0; person--) {
@@ -173,6 +176,7 @@ var personContainer = new Vue({
         }
       };
       this.allFilters = allFilters
+      console.log(allFilters)
       return this.allFilters
     },
     // textFilter: function(person){

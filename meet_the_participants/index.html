@@ -10,16 +10,13 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<!-- <link rel="stylesheet" href="/node_modules/materialize-css/dist/font/material-design-icons/Material-Design-Icons.woff2"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="theme-color" content="#db5945" />
 	</head>
 	<body>
 		<div class="navbar">
 			<nav>
 				<div class="nav-wrapper">
-					<a href="#!" class="brand-logo thin title">EP Directory</a>
-					<ul class="right hide-on-med-and-down">
-						<li><a href="sass.html">Hello</a></li>
-						<li><a href="badges.html">Anohter</a></li>
-					</ul>
+					<a href="#" class="brand-logo thin center">EP Directory</a>
 				</div>
 			</nav>
 		</div>
@@ -37,11 +34,11 @@
 		<div id="cont" class="row">
 			<br>
 			<div class="row center">
-			<div class="input-field col s10 offset-s1">
-				<i class="material-icons prefix">search</i>
-				<input id="icon_prefix" type="text" v-model="searchString" v-on:keyup="filterText(searchString) | debounce 100" >
-				<label for="icon_prefix" >Search</label>
-			</div>
+				<div class="input-field col s10 offset-s1">
+					<i class="material-icons prefix">search</i>
+					<input id="icon_prefix" type="text" v-model="searchString" v-on:keyup="filterText(searchString) | debounce 100" >
+					<label for="icon_prefix" >Search</label>
+				</div>
 			</div>
 			<div>
 				<ul class="collapsible popout"  data-collapsible="accordion">
@@ -102,18 +99,38 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">person</i>Interest (Exponential Tech and GGCs)</div>
+						<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Global Grand Challenges</div>
 						<div class="collapsible-body">
 							<div class="countryBox" action="#">
-								<span  v-for="companySize in computedFilters.companySize" v-if="companySize.name!==0">
-									<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
-									<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
-									<label for="{{companySize.name}}">{{companySize.name}} ({{companySize.count}})</label>
-								</span>
+								<div class="countryBox">
+									<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
+										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
+										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
+										<label for="{{ggc.name}}">{{ggc.name}} ({{ggc.count}})</label>
+									</span>
+									<div class="center">
+										<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+										<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+									</div>
+								</div>
 							</div>
-							<div class="center">
-								<button v-on:click="selectAll('companySize')" class="waves-effect waves-light btn selectBtns">Select All</button>
-								<button v-on:click="deselectAll('companySize')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">call_made</i>Exponential Technologies</div>
+						<div class="collapsible-body">
+							<div class="countryBox" action="#">
+								<div class="countryBox">
+									<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
+										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
+										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
+										<label for="{{tech.name}}">{{tech.name}} ({{tech.count}})</label>
+									</span>
+									<div class="center">
+										<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+										<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</li>
