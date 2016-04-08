@@ -1,8 +1,42 @@
-/** { outline: 1px black solid }*/
-.grid-item {
-	width: 310px;
-}
+/** { outline: 1px black solid; }*/
 
+.grid-item {
+	min-width: 40px;
+    width: 310px;
+}
+.thumb {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.thumb img {
+    display: inline;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+.count {
+    /*border: 1px solid black;
+    border-radius: 100%*/
+    font-size: 11px;
+}
+.clearText {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    transition: 280ms all;
+    -webkit-transition: -moz-transform 280ms all;
+    -moz-transition: -webkit-transform 280ms all;
+    transform: scale(1,1);
+    cursor: pointer;
+}
+.clearText:hover{
+    transform: scale(1.2,1.2);
+    cursor: hand;
+}
 .pic-wrap {
 	overflow: hidden;
 	max-height: 250px;
@@ -23,20 +57,36 @@
  	font-weight: bold;
  }
 
- .countryBox {
+ .filterBox {
  	margin: 25px;
  	display: flex;
  	flex-flow: row wrap;
     justify-content: center;
  }
- .countryBox span {
- 	width: 250px;
+.tech span {
+    width: 300px;
+ }
+ .ggc span {
+ 	width: 300px;
+ }
+ .companySize span {
+    width: 145px;
+ }
+ .sector span {
+    width: 530px;
+ }
+ .country span {
+    width: 200px;
  }
 
 .selectBtns {
 	margin: 20px;
 }
 
+.custom-class-name {
+    height: 20%;
+    color:black;
+}
 .scrollup {
     position: fixed;
     bottom: -10px;
@@ -45,7 +95,10 @@
     color: black;
     z-index: 100;
 }
-
+.tab a > i {
+    margin-right: 20px;
+    margin-top: 10px;
+}
 
 @media (min-width:20em) { /* smartphones, iPhone, portrait 480x320 phones */ }
 @media (min-width:30.063em) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }

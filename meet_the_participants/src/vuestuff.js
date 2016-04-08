@@ -37,7 +37,9 @@ var personContainer = new Vue({
       "What is the Biggest Problem",
       "Expectations",
     ],
-    up: false
+    up: false,
+    style: 'card',
+    searchString: ""
   },
   ready: function () {
     this.grid = document.querySelector('.grid');
@@ -82,6 +84,15 @@ var personContainer = new Vue({
       filtString = filtString.slice(0, -1); //remove trailing colon
       this._iso.arrange({filter: filtString});
       return filtString
+    },
+    open: function(id){
+      console.log("clicked");
+      console.log(id);
+      $(id).openModal();
+    },
+    orderCompanySize: function(compList){
+      ordered = [];
+      return ordered;
     },
     filterText: function (searchString){
       var searchRegEx = new RegExp( searchString, 'gi');
@@ -176,7 +187,6 @@ var personContainer = new Vue({
         }
       };
       this.allFilters = allFilters
-      console.log(allFilters)
       return this.allFilters
     },
     // textFilter: function(person){

@@ -34,9 +34,9 @@
 		<div id="cont" class="row">
 			<br>
 			<div class="row center">
-				<div class="input-field col s10 offset-s1">
-					<i class="material-icons prefix">search</i>
-					<input id="icon_prefix" type="text" v-model="searchString" v-on:keyup="filterText(searchString) | debounce 100" >
+				<div class="input-field col s10 offset-s1" >
+					<i class="material-icons prefix">search</i><a><i @click="filterText(searchString='')" class="material-icons clearText">close</i></a>
+					<input id="icon_prefix" v-model="searchString" type="text" v-on:keyup="filterText(searchString) | debounce 100" >
 					<label for="icon_prefix" >Search</label>
 				</div>
 			</div>
@@ -55,10 +55,10 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">public</i>Country</div>
 						<div class="collapsible-body">
-							<div class="countryBox" action="#">
+							<div class="filterBox country" action="#">
 								<span v-for="country in computedFilters.countries" v-if="country.name!==0">
 									<input type="checkbox" id="{{country.name}}" value="{{country.name}}" v-model="currentFilters.countries"/>
-									<label for="{{country.name}}">{{country.name}} ({{country.count}})</label>
+									<label for="{{country.name}}">{{country.name}} <span class="count">{{country.count}}</span></label>
 								</span>
 							</div>
 							<div class="center">
@@ -70,10 +70,10 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">work</i>Industry</div>
 						<div class="collapsible-body">
-							<div class="countryBox" action="#">
+							<div class="filterBox sector" action="#">
 								<span  v-for="sector in computedFilters.sector" v-if="sector.name!==0">
 									<input type="checkbox" id="{{sector.name}}" value="{{sector.name}}" v-model="currentFilters.sector"/>
-									<label for="{{sector.name}}">{{sector.name}} ({{sector.count}})</label>
+									<label for="{{sector.name}}">{{sector.name}} <span class="count">{{sector.count}}</span></label>
 								</span>
 							</div>
 							<div class="center">
@@ -85,11 +85,11 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">location_city</i>Company Size</div>
 						<div class="collapsible-body">
-							<div class="countryBox" action="#">
+							<div class="filterBox companySize" action="#">
 								<span  v-for="companySize in computedFilters.companySize" v-if="companySize.name!==0">
 									<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
 									<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
-									<label for="{{companySize.name}}">{{companySize.name}} ({{companySize.count}})</label>
+									<label for="{{companySize.name}}">{{companySize.name}} <span class="count">{{companySize.count}}</span></label>
 								</span>
 							</div>
 							<div class="center">
@@ -101,65 +101,85 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Global Grand Challenges</div>
 						<div class="collapsible-body">
-							<div class="countryBox" action="#">
-								<div class="countryBox">
+								<div class="filterBox ggc">
 									<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
 										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
 										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
-										<label for="{{ggc.name}}">{{ggc.name}} ({{ggc.count}})</label>
+										<label for="{{ggc.name}}">{{ggc.name}} <span class="count">{{ggc.count}}</span></label>
 									</span>
 								</div>
 								<div class="center">
 									<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
 									<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
 								</div>
-							</div>
 						</div>
 					</li>
 					<li>
 						<div class="collapsible-header"><i class="material-icons">call_made</i>Exponential Technologies</div>
 						<div class="collapsible-body">
-							<div class="countryBox" action="#">
-								<div class="countryBox">
+								<div class="filterBox tech">
 									<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
 										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
 										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
-										<label for="{{tech.name}}">{{tech.name}} ({{tech.count}})</label>
+										<label for="{{tech.name}}">{{tech.name}} <span class="count">{{tech.count}}</span></label>
 									</span>
 								</div>
 								<div class="center">
 									<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
 									<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
 								</div>
-							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
+			<!-- <div class="center" style="margin:30px">
+				<button v-on:click="style=thumb"><i class="material-icons">view_list</i></button>
+				<button v-on:click="style=thumb"><i class="material-icons">list</i></button>
+				<button v-on:click="style=card"><i class="material-icons">dashboard</i></button>
+				<button v-on:click="style=thumb"><i class="material-icons">dialpad</i></button>
+			</div> {{style}} -->
 			<div class="grid" >
-				<div v-for="participant in participants" class="grid-item card {{getPersonsFilters(participant)}}">
-					<div class="card-image waves-effect waves-block waves-light">
-						<div v-if="participant['Photo']">
-							<img class="activator" v-bind:src="participant['Photo']">
+				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
+					<!-- content contained should fade in-out on transisiton? -->
+					<!-- I want to be able to swap out the templates here on an individual basis. -->
+					<div v-if="style=thumb">
+						<div  class="thumb card-image waves-effect waves-block waves-light">
+							<div v-if="participant['Photo']">
+								<img onerror="this.onerror=null;this.src='/src/ProfilePlaceholderSuit.png'" v-bind:src="source=participant['Photo']">
+							</div>
+							<div v-if="!participant['Photo']">
+								<img src="/src/ProfilePlaceholderSuit.png">
+							</div>
 						</div>
-						<div v-if="!participant['Photo']">
-							<img class="activator" src="/src/ProfilePlaceholderSuit.png">
+						<span class="card-title"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
+					</div>
+					<div class='card'>
+						<div  class="card-image waves-effect waves-block waves-light">
+							<div v-if="participant['Photo']">
+								<img class="activator" onerror="this.onerror=null;this.src='/src/ProfilePlaceholderSuit.png'" v-bind:src="source=participant['Photo']">
+							</div>
+							<div v-if="!participant['Photo']">
+								<img class="activator" src="/src/ProfilePlaceholderSuit.png">
+							</div>
+							<span class="card-title name"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
 						</div>
-						<span class="card-title name"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
-						<p class="jobtitle">{{participant["Badge Job Title"]}},</p>
-						<p class="thin">{{participant["Badge Company"]}}</p>
-					</div>
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} <i class="material-icons right">close</i></span>
-						<p>{{participant["Biographic Sketch"]}}</p>
-						<!-- <p>{{participant["Interested In"]}}</p> -->
-						<!-- <p>{{participant["Inspired By"]}}</p> -->
-						<!-- <p>{{participant["Exponential Technologies"]}}</p> -->
-						<!-- <p>{{participant["Global Grand Challenges"]}}</p> -->
-						<!-- <button class="btn">more</button> -->
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+							<p class="jobtitle">{{participant["Badge Job Title"] | capitalize}},</p>
+							<p class="thin">{{participant["Badge Company"] | capitalize}}</p>
+							<!-- <div><span class="btn " v-on:click="open(participant['LastName'])"></span></div> -->
+							<!-- href="#" data-toggle="adaptive-modal" data-title="hello!" data-am-custom-class="custom-class-name" -->
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} <i class="material-icons right">close</i></span>
+							<p>{{participant["Biographic Sketch"]}}</p>
+							<!-- <p>{{participant["Interested In"]}}</p> -->
+							<!-- <p>{{participant["Inspired By"]}}</p> -->
+							<!-- <p>{{participant["Exponential Technologies"]}}</p> -->
+							<!-- <p>{{participant["Global Grand Challenges"]}}</p> -->
+							<!-- <button class="btn">more</button> -->
+							<div></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -197,6 +217,7 @@
 	<script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
 	<script src="/node_modules/vue/dist/vue.js"></script>
 	<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
+	<script src="/node_modules/isotope-packery/packery-mode.pkgd.js"></script>
 	<!-- inject:js -->
 	<script src="/src/isocontrol.js"></script>
 	<script src="/src/marchepparticipants.js"></script>

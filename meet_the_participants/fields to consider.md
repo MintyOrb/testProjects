@@ -14,7 +14,7 @@ view options -
 	thumnail version? first name + circle image?
 	list?
 
-image optimize
+image optimize size!
 
 clean errors in text?
 
