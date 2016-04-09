@@ -1,5 +1,11 @@
 /** { outline: 1px black solid; }*/
 
+.grid{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+ }
 .viewBtn {
     transition: color .3s;
 }
@@ -12,17 +18,15 @@
     width: 100vw;
     min-height: 40px;
     font-size: 20px;
-    display: flex;
+    display: flex !important;
     flex-flow: row wrap;
     justify-content: space-between;
-    /*flex: row wrap space-around;*/
-    /*outline: 1px solid black;*/
 }
 .card {
     width: 310px;
 }
 .thumbWidth {
-    width:110px;
+    width:120px;
     margin: 10px;
     display: flex;
     flex-flow: column;
@@ -46,9 +50,7 @@
     margin: 5px;
 }
 .count {
-    /*border: 1px solid black;
-    border-radius: 100%*/
-    font-size: 11px;
+    font-size: 10px;
 }
 .clearText {
     position: absolute;
@@ -69,14 +71,6 @@
 	overflow: hidden;
 	max-height: 250px;
 }
-
-.grid{
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    position: relative;
- }
-
  .name {
  	text-shadow: 2px 2px 10px black;
  }

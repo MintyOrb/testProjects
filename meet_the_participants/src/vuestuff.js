@@ -40,7 +40,8 @@ var personContainer = new Vue({
     ],
     up: false,
     displayStyle: 'card',
-    searchString: ""
+    searchString: "",
+    numberOfDisplayed: 0
   },
   ready: function () {
     this.grid = document.querySelector('.grid');
@@ -55,6 +56,8 @@ var personContainer = new Vue({
         name: '.name'
       },
     });
+    // set initial length
+    this.numberOfDisplayed = this._iso.filteredItems.length;
     // arrange when each photo is loaded
     var imgLoad = imagesLoaded( this.grid );
     imgLoad.on( 'progress', function( instance, image ) {
@@ -67,6 +70,7 @@ var personContainer = new Vue({
       deep: true,
       handler: function () {
         this.setFilters();
+        this.numberOfDisplayed = this._iso.filteredItems.length;
       }
     }
   },
@@ -106,6 +110,7 @@ var personContainer = new Vue({
       this._iso.arrange({filter: function(){
         return searchRegEx ? $(this).text().match(searchRegEx) : true;
       }});
+      this.numberOfDisplayed = this._iso.filteredItems.length;
       return searchString
     },
     getPersonsFilters: function(person) {

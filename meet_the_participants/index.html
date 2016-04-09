@@ -31,7 +31,7 @@
 				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
 			</ul>
 		</div> -->
-		<div id="cont" class="row">
+		<div id="cont">
 			<br>
 			<div class="row center">
 				<div class="input-field col s10 offset-s1" >
@@ -58,7 +58,7 @@
 							<div class="filterBox country" action="#">
 								<span v-for="country in computedFilters.countries" v-if="country.name!==0">
 									<input type="checkbox" id="{{country.name}}" value="{{country.name}}" v-model="currentFilters.countries"/>
-									<label for="{{country.name}}">{{country.name}} <span class="count">{{country.count}}</span></label>
+									<label for="{{country.name}}"><span class="count">{{country.count}}</span> {{country.name}} </label>
 								</span>
 							</div>
 							<div class="center">
@@ -72,8 +72,8 @@
 						<div class="collapsible-body">
 							<div class="filterBox sector" action="#">
 								<span  v-for="sector in computedFilters.sector" v-if="sector.name!==0">
-									<input type="checkbox" id="{{sector.name}}" value="{{sector.name}}" v-model="currentFilters.sector"/>
-									<label for="{{sector.name}}">{{sector.name}} <span class="count">{{sector.count}}</span></label>
+									<input type="checkbox" id="{{sector.name}}x" value="{{sector.name}}" v-model="currentFilters.sector"/>
+									<label for="{{sector.name}}x"><span class="count">{{sector.count}}</span> {{sector.name}} </label>
 								</span>
 							</div>
 							<div class="center">
@@ -105,7 +105,7 @@
 								<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
 									<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
 									<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
-									<label for="{{ggc.name}}">{{ggc.name}} <span class="count">{{ggc.count}}</span></label>
+									<label for="{{ggc.name}}"><span class="count">{{ggc.count}}</span> {{ggc.name}} </label>
 								</span>
 							</div>
 							<div class="center">
@@ -121,7 +121,7 @@
 								<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
 									<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
 									<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
-									<label for="{{tech.name}}">{{tech.name}} <span class="count">{{tech.count}}</span></label>
+									<label for="{{tech.name}}"><span class="count">{{tech.count}}</span> {{tech.name}} </label>
 								</span>
 							</div>
 							<div class="center">
@@ -140,11 +140,14 @@
 				<button v-if="!up" v-on:click="ascending('name')" class="waves-effect waves-light btn selectBtns">A-Z<i class="material-icons right">keyboard_arrow_down</i></button>
 				<button v-if="up" v-on:click="decending('name')" class="waves-effect waves-light btn selectBtns">Z-A<i class="material-icons right">keyboard_arrow_up</i></button>
 				<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
+				<br>
+				<div class="right thin" style="margin-right: 8%;">Showing {{numberOfDisplayed}} of {{participants.length}}</div>
+				<br>
 			</div>
 			<div class="grid" >
 				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
 					<div class="hide">{{getPersonsText(participant)}}</div>
-					<div v-if="displayStyle=='list'" class="list hoverable">
+					<div v-if="displayStyle=='list'" class="list hoverable waves-effect" >
 						<span class="thin">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
 						<span class="">{{participant["Badge Job Title"] | capitalize}}, {{participant["Badge Company"] | capitalize}}</span>
 					</div>
