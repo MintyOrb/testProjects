@@ -29,6 +29,7 @@ var personContainer = new Vue({
       "Company Size",
       "Attendee Job Function",
       "Badge Job Title",
+      "Badge Full Name",
       "Badge Company",
       "Gender",
       "Interested In",
@@ -38,7 +39,7 @@ var personContainer = new Vue({
       "Expectations",
     ],
     up: false,
-    style: 'card',
+    displayStyle: 'card',
     searchString: ""
   },
   ready: function () {
@@ -54,7 +55,6 @@ var personContainer = new Vue({
         name: '.name'
       },
     });
-
     // arrange when each photo is loaded
     var imgLoad = imagesLoaded( this.grid );
     imgLoad.on( 'progress', function( instance, image ) {
@@ -90,6 +90,13 @@ var personContainer = new Vue({
       console.log(id);
       $(id).openModal();
     },
+    changeDisplay: function(style){
+      var iso = this._iso;
+      this.displayStyle=style;
+      Vue.nextTick(function () {
+        iso.arrange();
+      })
+    },
     orderCompanySize: function(compList){
       ordered = [];
       return ordered;
@@ -110,19 +117,24 @@ var personContainer = new Vue({
       }
       return filtString
     },
+    getPersonsText: function(person){
+      var text = "";
+      for (var textFilter = this.searchTextFields.length - 1; textFilter >= 0; textFilter--) {
+        person['searchText'] += " " + person[this.searchTextFields[textFilter]];
+        text += " " + person[this.searchTextFields[textFilter]];
+      };
+      return text
+    },
     selectAll: function(type){
       for (var option = this.allFilters[type].length - 1; option >= 0; option--) {
         var found = false;
         for (var index = this.currentFilters[type].length - 1; index >= 0; index--) {
           if(this.currentFilters[type][index].name == this.allFilters[type][option].name){
             found = true;
-            console.log("found!")
             break
           }
         }
         if(!found) {
-          console.log('not found . trying to ad.')
-          console.log(this.allFilters[type][option])
           this.currentFilters[type].push(this.allFilters[type][option].name)
         }
       }
@@ -132,11 +144,6 @@ var personContainer = new Vue({
     },
     shuffle: function () {
       this._iso.shuffle()
-    },
-    sort: function () {
-      this._iso.arrange({
-        sortBy: 'id'
-      })
   	},
     ascending: function (by) {
       this.up = true;
@@ -172,6 +179,7 @@ var personContainer = new Vue({
   },
   computed: {
     computedFilters: function(){
+      console.log('comp here')
       var allFilters = {
         countries: [],
         sector: [],
@@ -180,7 +188,6 @@ var personContainer = new Vue({
         companySize: [],
         expectations: []
       }
-      console.log('computed filters') // called everytime enter new text box?
       for (var person = this.participants.length - 1; person >= 0; person--) {
         for (var filter = this.filterFields.length - 1; filter >= 0; filter--) {
           this.buildFilters(this.filterFields[filter], Object.keys(allFilters)[filter], allFilters, person)
@@ -188,14 +195,7 @@ var personContainer = new Vue({
       };
       this.allFilters = allFilters
       return this.allFilters
-    },
-    // textFilter: function(person){
-    //   for (var field = this.searchTextFields.length - 1; field >= 0; field--) {
-    //     person.textFilter += " " + person[this.searchTextFields[field]];
-    //   }
-    //   console.log(person.textFilter)
-    //   return person.textFilter;
-    // }
+    }
   }
 });
 

@@ -1,12 +1,30 @@
 /** { outline: 1px black solid; }*/
 
-.grid-item {
-	min-width: 40px;
+.viewBtn {
+    transition: color .3s;
+}
+.viewBtn:hover {
+    cursor: pointer;
+    color:gray;
+}
+.list {
+    width: 100vw;
+    height: 40px;
+    outline: 1px solid black;
+}
+.card {
     width: 310px;
 }
+.thumbWidth {
+    width:110px;
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
 .thumb {
-    width: 130px;
-    height: 130px;
+    width: 60px;
+    height: 60px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
@@ -16,6 +34,10 @@
     margin: 0 auto;
     width: 100%;
     height: auto;
+}
+.thumb-title {
+    font-weight: 300;
+    margin: 5px;
 }
 .count {
     /*border: 1px solid black;

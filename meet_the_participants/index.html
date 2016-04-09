@@ -42,7 +42,7 @@
 			</div>
 			<div>
 				<ul class="collapsible popout"  data-collapsible="accordion">
-					<li>
+					<!-- <li>
 						<div class="collapsible-header"><i class="material-icons">shuffle</i>Sort Options</div>
 						<div class="collapsible-body">
 							<div class="center" action="#">
@@ -51,7 +51,7 @@
 								<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
 							</div>
 						</div>
-					</li>
+					</li> -->
 					<li>
 						<div class="collapsible-header"><i class="material-icons">public</i>Country</div>
 						<div class="collapsible-body">
@@ -101,49 +101,56 @@
 					<li>
 						<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Global Grand Challenges</div>
 						<div class="collapsible-body">
-								<div class="filterBox ggc">
-									<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
-										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
-										<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
-										<label for="{{ggc.name}}">{{ggc.name}} <span class="count">{{ggc.count}}</span></label>
-									</span>
-								</div>
-								<div class="center">
-									<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
-									<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
-								</div>
+							<div class="filterBox ggc">
+								<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
+									<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
+									<input type="checkbox" id="{{ggc.name}}" value="{{ggc.name}}" v-model="currentFilters.ggcs"/>
+									<label for="{{ggc.name}}">{{ggc.name}} <span class="count">{{ggc.count}}</span></label>
+								</span>
+							</div>
+							<div class="center">
+								<button v-on:click="selectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+								<button v-on:click="deselectAll('ggcs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="collapsible-header"><i class="material-icons">call_made</i>Exponential Technologies</div>
 						<div class="collapsible-body">
-								<div class="filterBox tech">
-									<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
-										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
-										<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
-										<label for="{{tech.name}}">{{tech.name}} <span class="count">{{tech.count}}</span></label>
-									</span>
-								</div>
-								<div class="center">
-									<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
-									<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
-								</div>
+							<div class="filterBox tech">
+								<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
+									<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
+									<input type="checkbox" id="{{tech.name}}" value="{{tech.name}}" v-model="currentFilters.techs"/>
+									<label for="{{tech.name}}">{{tech.name}} <span class="count">{{tech.count}}</span></label>
+								</span>
+							</div>
+							<div class="center">
+								<button v-on:click="selectAll('techs')" class="waves-effect waves-light btn selectBtns">Select All</button>
+								<button v-on:click="deselectAll('techs')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
-			<!-- <div class="center" style="margin:30px">
-				<button v-on:click="style=thumb"><i class="material-icons">view_list</i></button>
-				<button v-on:click="style=thumb"><i class="material-icons">list</i></button>
-				<button v-on:click="style=card"><i class="material-icons">dashboard</i></button>
-				<button v-on:click="style=thumb"><i class="material-icons">dialpad</i></button>
-			</div> {{style}} -->
+			<div class="center">
+				<span class="viewBtn" v-on:click="changeDisplay('list')"><i class="material-icons">view_list</i></span>
+				<span class="viewBtn" v-on:click="changeDisplay('card')"><i class="material-icons">dashboard</i></span>
+				<span class="viewBtn" v-on:click="changeDisplay('thumb')"><i class="material-icons">dialpad</i></span>
+				<br>
+				<button v-if="!up" v-on:click="ascending('name')" class="waves-effect waves-light btn selectBtns">A-Z<i class="material-icons right">keyboard_arrow_down</i></button>
+				<button v-if="up" v-on:click="decending('name')" class="waves-effect waves-light btn selectBtns">Z-A<i class="material-icons right">keyboard_arrow_up</i></button>
+				<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
+			</div>
 			<div class="grid" >
 				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
-					<!-- content contained should fade in-out on transisiton? -->
-					<!-- I want to be able to swap out the templates here on an individual basis. -->
-					<div v-if="style=thumb">
-						<div  class="thumb card-image waves-effect waves-block waves-light">
+					<div class="hide">{{getPersonsText(participant)}}</div>
+					<div v-if="displayStyle=='list'" class="list hoverable">
+						<span>{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
+						<span>{{participant["Badge Job Title"] | capitalize}}</span>
+						<span>{{participant["Badge Company"] | capitalize}}</span>
+					</div>
+					<div v-if="displayStyle=='thumb'" class="thumbWidth">
+						<div  class="thumb card-image waves-effect waves-block waves-light z-depth-1">
 							<div v-if="participant['Photo']">
 								<img onerror="this.onerror=null;this.src='/src/ProfilePlaceholderSuit.png'" v-bind:src="source=participant['Photo']">
 							</div>
@@ -151,9 +158,9 @@
 								<img src="/src/ProfilePlaceholderSuit.png">
 							</div>
 						</div>
-						<span class="card-title"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
+						<span class="card-title thumb-title"> {{participant["FirstName"] | capitalize}}</span>
 					</div>
-					<div class='card'>
+					<div v-if="displayStyle=='card'" class='card hoverable'>
 						<div  class="card-image waves-effect waves-block waves-light">
 							<div v-if="participant['Photo']">
 								<img class="activator" onerror="this.onerror=null;this.src='/src/ProfilePlaceholderSuit.png'" v-bind:src="source=participant['Photo']">
@@ -173,12 +180,6 @@
 						<div class="card-reveal">
 							<span class="card-title grey-text text-darken-4">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} <i class="material-icons right">close</i></span>
 							<p>{{participant["Biographic Sketch"]}}</p>
-							<!-- <p>{{participant["Interested In"]}}</p> -->
-							<!-- <p>{{participant["Inspired By"]}}</p> -->
-							<!-- <p>{{participant["Exponential Technologies"]}}</p> -->
-							<!-- <p>{{participant["Global Grand Challenges"]}}</p> -->
-							<!-- <button class="btn">more</button> -->
-							<div></div>
 						</div>
 					</div>
 				</div>
