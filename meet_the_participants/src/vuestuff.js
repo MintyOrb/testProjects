@@ -97,9 +97,14 @@ var personContainer = new Vue({
     },
     changeDisplay: function(style){
       var iso = this._iso;
+      var grid = this.grid;
       this.displayStyle=style;
       Vue.nextTick(function () {
         iso.arrange();
+        var imgLoad = imagesLoaded( grid );
+        imgLoad.on( 'progress', function( instance, image ) {
+          iso.arrange();
+        });
       })
     },
     orderCompanySize: function(compList){
@@ -206,7 +211,7 @@ var personContainer = new Vue({
 
 
 $(document).ready(function () {
-
+   // $('.parallax').parallax();
     $(window).scroll(function () {
         if ($(this).scrollTop() > 1200) {
             $('.scrollup').fadeIn();
