@@ -8,9 +8,15 @@
     color:gray;
 }
 .list {
+    padding: 2% 8% 2% 8%;
     width: 100vw;
-    height: 40px;
-    outline: 1px solid black;
+    min-height: 40px;
+    font-size: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /*flex: row wrap space-around;*/
+    /*outline: 1px solid black;*/
 }
 .card {
     width: 310px;

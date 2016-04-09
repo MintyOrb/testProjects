@@ -145,9 +145,8 @@
 				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
 					<div class="hide">{{getPersonsText(participant)}}</div>
 					<div v-if="displayStyle=='list'" class="list hoverable">
-						<span>{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
-						<span>{{participant["Badge Job Title"] | capitalize}}</span>
-						<span>{{participant["Badge Company"] | capitalize}}</span>
+						<span class="thin">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
+						<span class="">{{participant["Badge Job Title"] | capitalize}}, {{participant["Badge Company"] | capitalize}}</span>
 					</div>
 					<div v-if="displayStyle=='thumb'" class="thumbWidth">
 						<div  class="thumb card-image waves-effect waves-block waves-light z-depth-1">
