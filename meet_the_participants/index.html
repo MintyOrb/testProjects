@@ -147,7 +147,7 @@
 			<div class="grid" >
 				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
 					<div class="hide">{{getPersonsText(participant)}}</div>
-					<div v-if="displayStyle=='list'" class="list hoverable waves-effect" >
+					<div v-if="displayStyle=='list'" class="list hoverable waves-effect waves-light" >
 						<span class="thin">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
 						<span class="">{{participant["Badge Job Title"] | capitalize}}, {{participant["Badge Company"] | capitalize}}</span>
 					</div>
@@ -222,7 +222,6 @@
 	<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
 	<script src="/node_modules/isotope-packery/packery-mode.pkgd.js"></script>
 	<!-- inject:js -->
-	<script src="/src/isocontrol.js"></script>
 	<script src="/src/marchepparticipants.js"></script>
 	<script src="/src/vuestuff.js"></script>
 	<!-- endinject -->

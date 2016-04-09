@@ -87,6 +87,7 @@ var personContainer = new Vue({
       }
       filtString = filtString.slice(0, -1); //remove trailing colon
       this._iso.arrange({filter: filtString});
+      this.numberOfDisplayed = this._iso.filteredItems.length;
       return filtString
     },
     open: function(id){
@@ -184,7 +185,6 @@ var personContainer = new Vue({
   },
   computed: {
     computedFilters: function(){
-      console.log('comp here')
       var allFilters = {
         countries: [],
         sector: [],

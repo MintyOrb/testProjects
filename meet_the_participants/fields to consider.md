@@ -10,10 +10,6 @@ tag entry- https://sean.is/poppin/tags
 
 uglify resources
 
-view options -
-	thumnail version? first name + circle image?
-	list?
-
 image optimize size!
 
 clean errors in text?
@@ -29,19 +25,13 @@ remove and add to dom for speed increase?
 fields editible by users with password? (rand generated?)
 	is this even possible without a dynamic server?
 
-broken links default to standard
-
 gendered standard images
 
-tech and ggc
-
-what you want to get out of program
+filter by what you want to get out of program
 
 conditioal adding
 	and, not, or
 		chain together?
-
-serach on fuller text
 
 router
 	url for search/filter
@@ -49,18 +39,11 @@ router
 
 parallax image header
 
-
-pull keywords from aggregated textblob
-
-remove expectations as filter
-
-change meta name="theme-color" content="#999999" />
-
-
 categorize and prioritieze these features
 
 clear all search options
 
+text search only within selected
 
 ...
 
