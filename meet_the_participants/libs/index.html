@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EP Directory</title>
+		<!-- inject:css -->
+		<link rel="stylesheet" href="/src/introcss.css">
+		<!-- endinject -->
+		<link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.css">
+		<link rel="stylesheet" href="/libs/adaptive-modal.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<!-- <link rel="stylesheet" href="/node_modules/materialize-css/dist/font/material-design-icons/Material-Design-Icons.woff2"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="theme-color" content="#db5945" />
+	</head>
+	<body>
+		<div class="navbar">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo thin center">EP Directory</a>
+				</div>
+			</nav>
+		</div>
+		<!-- 		<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+			<a class="btn-floating btn-large red">
+				<i class="large material-icons">mode_edit</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+				<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+				<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+			</ul>
+		</div> -->
+		<div id="cont" class="row">
+			<br>
+			<div class="row center">
+				<div class="input-field col s10 offset-s1">
+					<i class="material-icons prefix">search</i>
+					<input id="icon_prefix" type="text" v-model="searchString" v-on:keyup="filterText(searchString) | debounce 100" >
+					<label for="icon_prefix" >Search</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<ul class="tabs">
+						<li class="tab "><a href="#test1"><i class="material-icons ">shuffle</i>Sort Options</a></li>
+						<li class="tab "><a href="#test2"><i class="material-icons ">public</i>Country</a></li>
+						<li class="tab "><a href="#test3"><i class="material-icons ">work</i>Industry</a></li>
+						<li class="tab "><a href="#test4"><i class="material-icons ">location_city</i>Company Size</a></li>
+						<li class="tab "><a href="#test5"><i class="material-icons ">lightbulb_outline</i>Global Grand Challenges</a></li>
+						<li class="tab "><a href="#test6"><i class="material-icons ">call_made</i>Exponential Technologies</a></li>
+					</ul>
+				</div>
+				<div id="test1" class="col s12">
+					<button v-if="!up" v-on:click="ascending('name')" class="waves-effect waves-light btn selectBtns">A-Z<i class="material-icons right">keyboard_arrow_down</i></button>
+					<button v-if="up" v-on:click="decending('name')" class="waves-effect waves-light btn selectBtns">Z-A<i class="material-icons right">keyboard_arrow_up</i></button>
+					<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
+				</div>
+				<div id="test2" class="col s12">
+					<div class="countryBox" action="#">
+						<span v-for="country in computedFilters.countries" v-if="country.name!==0">
+							<input type="checkbox" id="{{country.name}}" value="{{country.name}}" v-model="currentFilters.countries"/>
+							<label for="{{country.name}}">{{country.name}} ({{country.count}})</label>
+						</span>
+					</div>
+					<div class="center">
+						<button v-on:click="selectAll('countries')" class="waves-effect waves-light btn selectBtns">Select All</button>
+						<button v-on:click="deselectAll('countries')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+					</div>
+				</div>
+				<div id="test3" class="col s12"><div class="countryBox" action="#">
+					<span  v-for="sector in computedFilters.sector" v-if="sector.name!==0">
+						<input type="checkbox" id="{{sector.name}}" value="{{sector.name}}" v-model="currentFilters.sector"/>
+						<label for="{{sector.name}}">{{sector.name}} ({{sector.count}})</label>
+					</span>
+				</div>
+				<div class="center">
+					<button v-on:click="selectAll('sector')" class="waves-effect waves-light btn selectBtns">Select All</button>
+					<button v-on:click="deselectAll('sector')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+				</div></div>
+				<div id="test4" class="col s12"><div class="countryBox" action="#">
+					<span  v-for="companySize in computedFilters.companySize" v-if="companySize.name!==0">
+						<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
+						<input type="checkbox" id="{{companySize.name}}" value="{{companySize.name}}" v-model="currentFilters.companySize"/>
+						<label for="{{companySize.name}}">{{companySize.name}} ({{companySize.count}})</label>
+					</span>
+				</div>
+				<div class="center">
+					<button v-on:click="selectAll('companySize')" class="waves-effect waves-light btn selectBtns">Select All</button>
+					<button v-on:click="deselectAll('companySize')" class="waves-effect waves-light btn selectBtns">Clear All</button>
+				</div>
+			</div></div>
+			<div class="grid" >
+				<div v-for="participant in participants" class="grid-item card {{participant['LastName']}} {{getPersonsFilters(participant)}}">
+					<div class="card-image waves-effect waves-block waves-light">
+						<div v-if="participant['Photo']">
+							<img class="activator" v-bind:src="participant['Photo']">
+						</div>
+						<div v-if="!participant['Photo']">
+							<img class="activator" src="/src/ProfilePlaceholderSuit.png">
+						</div>
+						<span class="card-title name"> {{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} </span>
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+						<p class="jobtitle">{{participant["Badge Job Title"] | capitalize}},</p>
+						<p class="thin">{{participant["Badge Company"] | capitalize}}</p>
+						<!-- <div><span class="btn " v-on:click="open(participant['LastName'])"></span></div> -->
+						<!-- href="#" data-toggle="adaptive-modal" data-title="hello!" data-am-custom-class="custom-class-name" -->
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}} <i class="material-icons right">close</i></span>
+						<p>{{participant["Biographic Sketch"]}}</p>
+						<!-- <p>{{participant["Interested In"]}}</p> -->
+						<!-- <p>{{participant["Inspired By"]}}</p> -->
+						<!-- <p>{{participant["Exponential Technologies"]}}</p> -->
+						<!-- <p>{{participant["Global Grand Challenges"]}}</p> -->
+						<!-- <button class="btn">more</button> -->
+					</div>
+				</div>
+			</div>
+			<a href="#" class="scrollup"><i class="material-icons large">keyboard_arrow_up</i></a>
+			<footer class="page-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col l6 s12">
+							<h5 class="white-text">I'm a foot.</h5>
+							<p class="grey-text text-lighten-4">Many footy things will go here. Or maybe only a few.</p>
+						</div>
+						<div class="col l4 offset-l2 s12">
+							<h5 class="white-text">Links</h5>
+							<ul>
+								<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<div class="container">
+						© 2016 Copyright Text
+						<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script src="/libs/jquery.adaptive-modal.js"></script>
+	<script src="/node_modules/isotope-layout/dist/isotope.pkgd.js"></script>
+	<script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+	<script src="/node_modules/vue/dist/vue.js"></script>
+	<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
+	<!-- inject:js -->
+	<script src="/src/isocontrol.js"></script>
+	<script src="/src/marchepparticipants.js"></script>
+	<script src="/src/vuestuff.js"></script>
+	<!-- endinject -->
+</html>
