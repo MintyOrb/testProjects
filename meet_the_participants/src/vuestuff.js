@@ -1,9 +1,9 @@
 // Vue.config.debug = true;
-
+console.log(may)
 var personContainer = new Vue({
   el: '#cont',
   data: {
-    participants: participants,
+    participants: may,
     currentFilters: {
         countries: [],
         sector: [],

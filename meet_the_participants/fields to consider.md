@@ -1,49 +1,65 @@
 
 
-charts/demographics
+new
+	charts/demographics
+		gender
+		industry
+		world region?
+		age
 
-company size ordering
+		compare with all time totals?
 
-new/own repo
+	map - from address? IP address?
 
-tag entry- https://sean.is/poppin/tags
+	company size ordering
 
-uglify resources
+	new/own repo
 
-image optimize size!
+	filter by what you want to get out of program- expectation?
 
-clean errors in text?
+	router
+		url for search/filter
+		url for individuals pages
 
-secret url for extra info
+	indivudals page with more info (twitter, linkedin, website) where present
+		modal?
 
-map - from address? IP address?
+	secret url for extra info
 
-modal transistion - full card, not just <a> element
+	fields editible by users with password? (rand generated?)
+		is this even possible without a dynamic server?
 
-remove and add to dom for speed increase?
 
-fields editible by users with password? (rand generated?)
-	is this even possible without a dynamic server?
+improvement
+	modularize with webkit
 
-gendered standard images
+	simultaneous text/checkbox search
 
-filter by what you want to get out of program
+	clear all search options
 
-conditioal adding
-	and, not, or
-		chain together?
+	selected search options visible
 
-router
-	url for search/filter
-	url for individuals
+	text search only within selected
 
-parallax image header
+	tag filter/search entry- https://sean.is/poppin/tags
 
-categorize and prioritieze these features
+	conditioal adding
+		and, not, or
+			chain together?
 
-clear all search options
+	gendered standard images
 
-text search only within selected
+	uglify resources
+
+	image optimize sizes
+
+	clean errors in text?
+
+	modal transistion - full card, not just <a> element
+
+	remove and add to dom for speed increase? - necessary for remote source anyway...
+
+
 
 ...
 

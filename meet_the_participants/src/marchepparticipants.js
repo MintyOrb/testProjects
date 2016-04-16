@@ -1,4 +1,4 @@
-var participants = [
+var march = [
   {
     "Attendee: Attendee Id": "SU-AT-000001039",
     "Age": "9/21/1987",
