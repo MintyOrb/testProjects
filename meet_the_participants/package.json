@@ -10,7 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-inject": "^4.0.0"
+    "gulp-inject": "^4.0.0",
+    "vue-materialize": "^0.1.11"
   },
   "dependencies": {
     "imagesloaded": "^4.1.0",

@@ -1,5 +1,5 @@
 // Vue.config.debug = true;
-console.log(may)
+// console.log(window.vueMaterialize.modal)
 var personContainer = new Vue({
   el: '#cont',
   data: {
@@ -38,6 +38,11 @@ var personContainer = new Vue({
       "What is the Biggest Problem",
       "Expectations",
     ],
+    password: {
+      providedCorrectPass: true,
+      incorrectPass: false,
+      passText: ''
+    },
     up: false,
     displayStyle: 'card',
     searchString: "",
@@ -63,7 +68,6 @@ var personContainer = new Vue({
     imgLoad.on( 'progress', function( instance, image ) {
       _iso.arrange();
     });
-
   },
   watch: {
     currentFilters: {
@@ -75,6 +79,14 @@ var personContainer = new Vue({
     }
   },
   methods: {
+    checkPass: function(){
+      if (this.password.passText == "SUFaculty1") {
+        this.password.providedCorrectPass = true;
+      } else {
+        this.password.passText='';
+        this.password.incorrectPass = true;
+      }
+    },
     setFilters: function () { // get name of all selected filters, build string
       var filtString = "";
       var keys = Object.keys(this.currentFilters);
@@ -90,10 +102,8 @@ var personContainer = new Vue({
       this.numberOfDisplayed = this._iso.filteredItems.length;
       return filtString
     },
-    open: function(id){
-      console.log("clicked");
-      console.log(id);
-      $(id).openModal();
+    openModal: function(id){
+      $('#'+id).openModal();
     },
     changeDisplay: function(style){
       var iso = this._iso;
@@ -211,7 +221,8 @@ var personContainer = new Vue({
 
 
 $(document).ready(function () {
-   // $('.parallax').parallax();
+    // $('.modal-trigger').leanModal();
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 1200) {
             $('.scrollup').fadeIn();

@@ -2,17 +2,26 @@
 <html>
 	<head>
 		<title>EP Directory</title>
-		<!-- inject:css -->
-		<link rel="stylesheet" href="/src/introcss.css">
-		<!-- endinject -->
+
 		<link rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.css">
 		<link rel="stylesheet" href="/libs/adaptive-modal.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<!-- inject:css -->
+		<link rel="stylesheet" href="/src/introcss.css">
+		<!-- endinject -->
 		<!-- <link rel="stylesheet" href="/node_modules/materialize-css/dist/font/material-design-icons/Material-Design-Icons.woff2"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta name="theme-color" content="#db5945" />
 	</head>
-	<body>
+	<body id="cont">
+		<div v-if="!password.providedCorrectPass" class="password valign-wrapper" transition="fade">
+			<div class="row center valign">
+				<div class="input-field" >
+					<input v-bind:class="{'invalid': password.incorrectPass}" id="pass" v-model="password.passText" v-on:keyup.enter="checkPass()" type="password">
+					<label for="pass" >Password</label>
+				</div>
+			</div>
+		</div>
 		<div class="navbar">
 			<nav>
 				<div class="nav-wrapper">
@@ -20,10 +29,7 @@
 				</div>
 			</nav>
 		</div>
-		<!-- <div class="parallax-container" style="max-height: 250px; width: 100vw;">
-			<div class="parallax"><img src="spak.jpg"></div>
-		</div> -->
-		<!-- 		<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+		<!-- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 			<a class="btn-floating btn-large red">
 				<i class="large material-icons">mode_edit</i>
 			</a>
@@ -34,29 +40,29 @@
 				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
 			</ul>
 		</div> -->
-		<div id="cont">
+		<div>
 			<br>
 			<div class="row center">
 				<div class="input-field col s10 offset-s1" >
 					<i class="material-icons prefix">search</i><a><i @click="filterText(searchString='')" class="material-icons clearText">close</i></a>
-					<input id="icon_prefix" v-model="searchString" type="text" v-on:keyup="filterText(searchString) | debounce 100" >
-					<label for="icon_prefix" >Search</label>
+					<input id="search" v-model="searchString" type="text" v-on:keyup="filterText(searchString) | debounce 100" >
+					<label for="search" >Search</label>
 				</div>
 			</div>
-			<div>
+			<div >
 				<ul class="collapsible popout"  data-collapsible="accordion">
 					<!-- <li>
-							<div class="collapsible-header"><i class="material-icons">shuffle</i>Sort Options</div>
-							<div class="collapsible-body">
-									<div class="center" action="#">
-											<button v-if="!up" v-on:click="ascending('name')" class="waves-effect waves-light btn selectBtns">A-Z<i class="material-icons right">keyboard_arrow_down</i></button>
-											<button v-if="up" v-on:click="decending('name')" class="waves-effect waves-light btn selectBtns">Z-A<i class="material-icons right">keyboard_arrow_up</i></button>
-											<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
-									</div>
-							</div>
+								<div class="collapsible-header"><i class="material-icons">shuffle</i>Sort Options</div>
+								<div class="collapsible-body">
+											<div class="center" action="#">
+														<button v-if="!up" v-on:click="ascending('name')" class="waves-effect waves-light btn selectBtns">A-Z<i class="material-icons right">keyboard_arrow_down</i></button>
+														<button v-if="up" v-on:click="decending('name')" class="waves-effect waves-light btn selectBtns">Z-A<i class="material-icons right">keyboard_arrow_up</i></button>
+														<button v-on:click="shuffle()" class="waves-effect waves-light btn">Shuffle <i class="material-icons right">shuffle</i></button>
+											</div>
+								</div>
 					</li> -->
 					<li>
-						<div class="collapsible-header"><i class="material-icons">public</i>Country</div>
+						<div class="collapsible-header"><i class="material-icons">public</i>Country<span v-if="currentFilters.countries.length > 0" v-on:click="deselectAll('countries')" class="right"><span class="clearFilterBtn">clear {{currentFilters.countries.length}}</span></span></div>
 						<div class="collapsible-body">
 							<div class="filterBox country" action="#">
 								<span v-for="country in computedFilters.countries" v-if="country.name!==0">
@@ -71,7 +77,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">work</i>Industry</div>
+						<div class="collapsible-header"><i class="material-icons">work</i>Industry<span v-if="currentFilters.sector.length > 0" v-on:click="deselectAll('sector')" class="right"><span class="clearFilterBtn">clear {{currentFilters.sector.length}}</span></span></div>
 						<div class="collapsible-body">
 							<div class="filterBox sector" action="#">
 								<span  v-for="sector in computedFilters.sector" v-if="sector.name!==0">
@@ -86,7 +92,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">location_city</i>Company Size</div>
+						<div class="collapsible-header"><i class="material-icons">location_city</i>Company Size<span v-if="currentFilters.companySize.length > 0" v-on:click="deselectAll('companySize')" class="right"><span class="clearFilterBtn">clear {{currentFilters.companySize.length}}</span></span></div>
 						<div class="collapsible-body">
 							<div class="filterBox companySize" action="#">
 								<span  v-for="companySize in computedFilters.companySize" v-if="companySize.name!==0">
@@ -102,7 +108,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Global Grand Challenges</div>
+						<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Global Grand Challenges<span v-if="currentFilters.ggcs.length > 0" v-on:click="deselectAll('ggcs')" class="right"><span class="clearFilterBtn">clear {{currentFilters.ggcs.length}}</span></span></div>
 						<div class="collapsible-body">
 							<div class="filterBox ggc">
 								<span  v-for="ggc in computedFilters.ggcs" v-if="ggc.name!==0 && ggc.name!=='on'">
@@ -118,7 +124,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="collapsible-header"><i class="material-icons">call_made</i>Exponential Technologies</div>
+						<div class="collapsible-header"><i class="material-icons">call_made</i>Exponential Technologies<span v-if="currentFilters.techs.length > 0" v-on:click="deselectAll('techs')" class="right"><span class="clearFilterBtn">clear {{currentFilters.techs.length}}</span></span></div>
 						<div class="collapsible-body">
 							<div class="filterBox tech">
 								<span  v-for="tech in computedFilters.techs" v-if="tech.name!==0 && tech.name!=='on'">
@@ -148,14 +154,14 @@
 				<br>
 			</div>
 			<div class="grid" >
-				<div v-for="participant in participants" class="grid-item {{participant['LastName']}} {{getPersonsFilters(participant)}}">
-					<div class="hide">{{getPersonsText(participant)}}</div>
-					<div v-if="displayStyle=='list'" class="list hoverable waves-effect waves-light" >
+				<div v-for="participant in participants" class="grid-item {{getPersonsFilters(participant)}}">
+					<div class="hide">{{getPersonsText(participant)}}</div> <!-- used for text filtering -->
+					<div v-on:click="openModal(participant['Attendee: Attendee Id'])" v-if="displayStyle=='list'" class="list hoverable waves-effect waves-light" >
 						<span class="thin">{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</span>
 						<span class="">{{participant["Badge Job Title"] | capitalize}}, {{participant["Badge Company"] | capitalize}}</span>
 					</div>
 					<div v-if="displayStyle=='thumb'" class="thumbWidth">
-						<div  class="thumb card-image waves-effect waves-block waves-light z-depth-1">
+						<div  v-on:click="openModal(participant['Attendee: Attendee Id'])" class="thumb card-image waves-effect waves-block waves-light z-depth-1">
 							<div v-if="participant['Photo']">
 								<img onerror="this.onerror=null;this.src='/src/ProfilePlaceholderSuit.png'" v-bind:src="source=participant['Photo']">
 							</div>
@@ -179,7 +185,7 @@
 							<span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
 							<p class="jobtitle">{{participant["Badge Job Title"] | capitalize}},</p>
 							<p class="thin">{{participant["Badge Company"] | capitalize}}</p>
-							<!-- <div><span class="btn " v-on:click="open(participant['LastName'])"></span></div> -->
+							<!-- <div><span class="btn " v-on:click="open(participant['LastName'])"></span></div>
 							<!-- href="#" data-toggle="adaptive-modal" data-title="hello!" data-am-custom-class="custom-class-name" -->
 						</div>
 						<div class="card-reveal">
@@ -187,46 +193,59 @@
 							<p>{{participant["Biographic Sketch"]}}</p>
 						</div>
 					</div>
+					<div id="{{participant['Attendee: Attendee Id']}}" class="modal modal-fixed-footer">
+						<div class="modal-content">
+							<h3>{{participant["FirstName"] | capitalize}} {{participant["LastName"] | capitalize}}</h3>
+							<p> {{participant["Badge Citizenship"]}}</p>
+							<p> {{participant["Badge Job Title"]}}, {{participant["Badge Company"]}} ({{participant["Company Size"]}} employees)</p>
+							<p> {{participant["Biographic Sketch"]}}</p>
+						</div>
+						<div class="modal-footer">
+							<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<a href="#" class="scrollup"><i class="material-icons large">keyboard_arrow_up</i></a>
-			<footer class="page-footer">
-				<div class="container">
-					<div class="row">
-						<div class="col l6 s12">
-							<h5 class="white-text">I'm a foot.</h5>
-							<p class="grey-text text-lighten-4">Many footy things will go here. Or maybe only a few.</p>
-						</div>
-						<div class="col l4 offset-l2 s12">
-							<h5 class="white-text">Links</h5>
-							<ul>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="footer-copyright">
-					<div class="container">
-						© 2016 Copyright Text
-						<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-					</div>
-				</div>
-			</footer>
 		</div>
-	</body>
-	<script src="/node_modules/jquery/dist/jquery.js"></script>
-	<script src="/libs/jquery.adaptive-modal.js"></script>
-	<script src="/node_modules/isotope-layout/dist/isotope.pkgd.js"></script>
-	<script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
-	<script src="/node_modules/vue/dist/vue.js"></script>
-	<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
-	<script src="/node_modules/isotope-packery/packery-mode.pkgd.js"></script>
-	<!-- inject:js -->
-	<script src="/src/marchepparticipants.js"></script>
-	<script src="/src/may.js"></script>
-	<script src="/src/vuestuff.js"></script>
-	<!-- endinject -->
+		<a href="#" class="scrollup"><i class="material-icons large">keyboard_arrow_up</i></a>
+		<footer class="page-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">I'm a foot.</h5>
+						<p class="grey-text text-lighten-4">Many footy things will go here. Or maybe only a few.</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2016 Copyright Text
+					<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/libs/jquery.adaptive-modal.js"></script>
+<script src="/node_modules/isotope-layout/dist/isotope.pkgd.js"></script>
+<script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+<script src="/node_modules/vue/dist/vue.js"></script>
+<script src="/node_modules/imagesloaded/imagesloaded.pkgd.js"></script>
+<script src="/node_modules/isotope-packery/packery-mode.pkgd.js"></script>
+<!-- <script src="/node_modules/vue-materialize/build/bundle.js"></script> -->
+<!-- inject:js -->
+<script src="/src/marchepparticipants.js"></script>
+<script src="/src/may.js"></script>
+<script src="/src/vuestuff.js"></script>
+<!-- endinject -->
 </html>

@@ -29,17 +29,21 @@ new
 	fields editible by users with password? (rand generated?)
 		is this even possible without a dynamic server?
 
+	*and/or options for filter filter
 
 improvement
 	modularize with webkit
 
-	simultaneous text/checkbox search
+	scroll up icon waggle on display
+	scroll up icon expand or move up on hover
 
 	clear all search options
 
 	selected search options visible
 
 	text search only within selected
+
+	simultaneous text/checkbox search
 
 	tag filter/search entry- https://sean.is/poppin/tags
 

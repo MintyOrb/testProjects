@@ -6,3 +6,6 @@ print(iris.data[0])
 print(iris.target[0])
 for i in range(len(iris.target)):
 		print("Example %d: Label %s, features %s" % (i, iris.target[i], iris.data[i]))
+
+print(iris)
+print("HI")

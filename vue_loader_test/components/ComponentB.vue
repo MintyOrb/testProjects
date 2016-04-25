@@ -1,3 +1,7 @@
+<style scoped>
+.test { background-color: gray; }
+</style>
+
 <template>
-	<div>oh, uh. Hello there. WE'RE LIVE?1</div>
+	<div class="test">oh, uh. Hello there. WE'RE LIVE? some thing new</div>
 </template>

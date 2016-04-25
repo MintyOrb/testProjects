@@ -1,4 +1,4 @@
-/** { outline: 1px black solid; }*/
+/** { outline: 1px solid; }*/
 
 .grid{
     width: 100%;
@@ -105,6 +105,14 @@
 	margin: 20px;
 }
 
+.clearFilterBtn {
+    padding: 5px;
+    background-color: #26A69A;
+    border-radius: 3px;
+    color: white;
+    font-size: 11px;
+}
+
 .custom-class-name {
     height: 20%;
     color:black;
@@ -122,9 +130,78 @@
     margin-top: 10px;
 }
 
+.password {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+    background-color:white;
+}
+.password input {
+    font-size: 45px!important;
+}
+.password label.active {
+    transform: translateY(-200%);
+    /*color: black;*/
+}
+.fade-transition {
+  transition: all 1.5s ease;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+}
+.content.fade-transition {
+  /* Delay for showing the content after the loader has been hidden */
+  transition-delay: 1.5s;
+}
+.fade-enter, .fade-leave {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+    color: black;
+}
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px 0 0 black;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: black;
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px 0 0 black;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: gray;
+}
+
+/*find out where to*/
+ /*   .modal {
+        top: 0!important;
+        max-height: 100%!important;
+        width: 100%!important;
+        height: 100%!important;
+        }*/
+
 @media (min-width:20em) { /* smartphones, iPhone, portrait 480x320 phones */ }
 @media (min-width:30.063em) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
 @media (min-width:40.063em) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
 @media (min-width:60.063em) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
 @media (min-width:64.063em) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:80.063em) { /* hi-res laptops and desktops */ }
+@media (min-width:80.063em) { /* hi-res laptops and desktops */ 
+}
