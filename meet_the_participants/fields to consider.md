@@ -1,6 +1,7 @@
 
 
 new
+
 	charts/demographics
 		gender
 		industry
@@ -11,7 +12,7 @@ new
 
 	map - from address? IP address?
 
-	company size ordering
+	~~company size ordering~~
 
 	new/own repo
 
@@ -29,20 +30,20 @@ new
 	fields editible by users with password? (rand generated?)
 		is this even possible without a dynamic server?
 
-	*and/or options for filter filter
+	filter without leaving current position on page
 
 improvement
+
 	modularize with webkit
 
 	scroll up icon waggle on display
 	scroll up icon expand or move up on hover
 
-	clear all search options
+	~~clear all search options~~
 
-	selected search options visible
+	~~selected search options visible~~
 
 	text search only within selected
-
 	simultaneous text/checkbox search
 
 	tag filter/search entry- https://sean.is/poppin/tags
@@ -68,6 +69,7 @@ improvement
 ...
 
 sort on
+
 	company Size
 	name
 	original?
@@ -75,6 +77,7 @@ sort on
 	...
 
 filter on:
+
 	"Badge Citizenship" 		- secondary? tertiary?
 	"Company Sector"
 	"Exponential Technologies"
@@ -84,6 +87,7 @@ filter on:
 
 
 person info: (tabs?)
+
 	"Attendee Job Function"
 	"Badge Job Title"
 	"Badge Company"
