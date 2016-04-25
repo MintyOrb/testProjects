@@ -39,7 +39,7 @@ var personContainer = new Vue({
       "Expectations",
     ],
     password: {
-      providedCorrectPass: true,
+      providedCorrectPass: false,
       incorrectPass: false,
       passText: ''
     },
@@ -116,10 +116,6 @@ var personContainer = new Vue({
           iso.arrange();
         });
       })
-    },
-    orderCompanySize: function(compList){
-      ordered = [];
-      return ordered;
     },
     filterText: function (searchString){
       var searchRegEx = new RegExp( searchString, 'gi');
@@ -213,6 +209,34 @@ var personContainer = new Vue({
           this.buildFilters(this.filterFields[filter], Object.keys(allFilters)[filter], allFilters, person)
         }
       };
+      // order company size
+      for (var size = allFilters.companySize.length - 1; size >= 0; size--) {
+        allFilters.companySize[size].sortby = Math.abs(eval(allFilters.companySize[size].name.replace(/[^0-9+]+/gi, '-')));
+      }
+      allFilters.companySize.sort(function(a, b) {
+          return parseFloat(a.sortby) - parseFloat(b.sortby);
+      });
+
+      //consolidate sectors
+      var sectorTemp = []
+      var sec = allFilters.sector.length;
+      while (sec--) {
+        if(allFilters.sector[sec].name.split(';').length > 1) {
+          for(var x = allFilters.sector[sec].name.split(';').length-1; x >=0; x--){
+            sectorTemp.push(allFilters.sector[sec].name.split(';')[x].trim())
+          }
+          allFilters.sector.splice(sec,1);
+        }
+      }
+      for (var ii = sectorTemp.length - 1; ii >= 0; ii--) {
+        for (var jj = allFilters.sector.length - 1; jj >= 0; jj--) {
+          if(sectorTemp[ii]==allFilters.sector[jj].name){
+            allFilters.sector[jj].count += 1;
+            break
+          }
+        }
+      }
+
       this.allFilters = allFilters
       return this.allFilters
     }
@@ -221,7 +245,6 @@ var personContainer = new Vue({
 
 
 $(document).ready(function () {
-    // $('.modal-trigger').leanModal();
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 1200) {
