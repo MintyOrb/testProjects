@@ -2,6 +2,8 @@
 
 new
 
+	favicon
+
 	charts/demographics
 		gender
 		industry
@@ -32,9 +34,8 @@ new
 
 	filter without leaving current position on page
 
-improvement
-
-	modularize with webkit
+	modularize with webpack
+	.vue files
 
 	scroll up icon waggle on display
 	scroll up icon expand or move up on hover

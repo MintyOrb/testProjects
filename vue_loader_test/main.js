@@ -5,7 +5,10 @@ var App = require('./components/App.vue')
 
 // mount a root Vue instance
 new Vue({
-  el: 'body',
+  el: '#vue',
+  data: {
+    test: "hello worlds"
+  },
   components: {
     // include the required component
     // in the options

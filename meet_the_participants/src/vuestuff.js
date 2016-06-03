@@ -125,7 +125,7 @@ var personContainer = new Vue({
       this.numberOfDisplayed = this._iso.filteredItems.length;
       return searchString
     },
-    getPersonsFilters: function(person) {
+    getPersonsFilters: function(person) {// add each sector to person if more than one (separated with ;)
       var filtString = "";
       for (var filter = this.filterFields.length - 1; filter >= 0; filter--) {
         if(person[this.filterFields[filter]]){
@@ -243,7 +243,7 @@ var personContainer = new Vue({
   }
 });
 
-
+// probably should incorporate this into vue.
 $(document).ready(function () {
 
     $(window).scroll(function () {
