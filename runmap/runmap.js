@@ -11,11 +11,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'tbor.n138miod',
     accessToken: 'pk.eyJ1IjoidGJvciIsImEiOiJmZThlMTE1YzQ5MDZiNWIyNDk1NTg5OGNjZWNmMGIyNCJ9.KBafeg5js_TsFV0QWoygpg'
 }).addTo(map);
-
+map.setView([37.7749, -95],4);
 for (var name = names.length - 1; name >= 0; name--) {
-	new L.GPX(names[name], {async: true}).on('loaded', function(e) {
-	  map.fitBounds(e.target.getBounds());
-	}).addTo(map);
+	new L.GPX(names[name], {async: true}).on('loaded').addTo(map);
 }
 
 // If you want to display additional information about the GPX track, you can do so in the 'loaded' event handler, calling one of the following methods on the GPX object e.target:
