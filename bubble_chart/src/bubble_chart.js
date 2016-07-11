@@ -146,7 +146,7 @@ function bubbleChart() {
 
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
-      .data(nodes, function (d) { return d.id; }).call(force.drag);;
+      .data(nodes, function (d) { return d.id; }).call(force.drag);
 
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
