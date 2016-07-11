@@ -1,0 +1,17 @@
+{
+  "name": "neo4j-test-the-reigns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "seraph": "^0.14.4",
+    "seraph-model": "^0.8.2",
+    "seraph-resource": "^0.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
