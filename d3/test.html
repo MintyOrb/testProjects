@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+</body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<!-- <script src="/test.js"></script> -->
+<script>
+    var theData = [ 1, 2, 3 ]
+
+var p = d3.select("body").selectAll("p")
+  .data(theData)
+  .enter()
+  .append("p")
+  .text(function (d,i) {
+    return "i = " + i + " d = "+d;
+   });
+  console.log(p)
+</script>

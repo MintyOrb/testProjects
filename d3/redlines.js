@@ -15,7 +15,7 @@ var g = d3.select('#vis')// select and then select all?
     .enter()// eneter each point to modify?
       .append('svg')
       .attr({ width: 80, height: 80 })
-      .append('g')
+      .append('g') // g = group
       .attr('transform', function(d) { console.log(d);return 'rotate(' + d + ', 40, 40)'; });
 
 var line = d3.svg.line()

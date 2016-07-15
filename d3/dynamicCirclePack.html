@@ -1,0 +1,99 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Circle Packing</title>
+   <script src="http://mbostock.github.com/d3/d3.v2.js?2.8.1"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <!-- <link type="text/css" rel="stylesheet" href="pack.css"/> -->
+  </head>
+  <body>
+    <div id='geoferenced_id'>Click on the body to see Georeferenced data!!</div>
+    <div id="chart"></div>
+    <script type="text/javascript">
+
+
+var width = 500,
+    height = 560
+    format = d3.format(",d");
+
+
+var vis = d3.select("#chart").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("class", "pack")
+    .append("g")
+    .attr("transform", "translate(2, 2)");
+
+d3.json("data/institutions.json", function(json)
+{
+
+  var pack = d3.layout.pack()
+      .size([width - 4, height - 4])
+      .value(function(d) {
+        return gScale(d.count);
+      });
+
+  gScale = d3.scale.linear()
+                     .domain([0, json.total_occurrences])
+                     .range([0.2, 350]);
+
+  var node = vis.data([json]).selectAll("g.node")
+             .data(pack.nodes)
+
+  node.enter().append("g")
+      .attr("class", function(d) { return d.children ? "node" : "leaf node"; })
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+  node.append("title")
+      .text(function(d) { return d.name + (d.children ? "" : ": " + format(d.size)); });
+
+  node.append("circle")
+        .attr("r", function(d) { return d.r; });
+
+  var textes=node.filter(function(d) { return !d.children; }).append("text")
+  textes.attr("text-anchor", "middle")
+      .attr("dy", ".3em")
+      .text(function(d) { return d.count });
+
+$('body').click(function(e) {
+
+pack.value(function(d) {
+      //SYMBOLIZING BY NEW VALUE
+    return gScale(d.georef_count)
+    })
+
+node.data([json]).selectAll("g")
+             .data(pack.nodes)
+
+node.transition()
+  .duration(4500)
+  .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })//.attr('fill','red');
+
+d3.selectAll("circle")
+  .transition()
+  .duration(4500)
+  .attr("r", function(d) { return d.r });
+
+textes.text(function(d) { return d.georef_count });
+
+});
+});
+  </script>
+    </body>
+</html>
+<style>
+.leaf circle {
+  fill: #ff7f0e;
+  fill-opacity: 0.5;
+}
+
+ circle {
+  fill: 'red';
+  fill-opacity: 0.25;
+}
+
+text {
+  font: 10px sans-serif;
+}
+</style>

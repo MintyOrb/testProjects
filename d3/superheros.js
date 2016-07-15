@@ -63,7 +63,7 @@ var force = d3.layout.force();
 
 vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
 
-d3.json("marvel.json", function(json) {
+d3.json("data/marvel.json", function(json) {
 
   root = json;
   root.fixed = true;
