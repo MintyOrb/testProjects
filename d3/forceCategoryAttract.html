@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Categorical Foci</title>
+  <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script src="http://d3js.org/d3.v2.js"></script>
+  <script src="http://underscorejs.org/underscore.js"></script>
+  <style type="text/css">
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  color: #141414;
+  margin: 0;
+}
+
+#chart .background {
+  fill: rgba(255,255,255,0.3);
+}
+
+circle {
+  stroke: #fff;
+}
+
+text.foci-label {
+  text-anchor: middle;
+  font-size: 24px;
+  opacity: 0.5;
+  font-weight: bold;
+  cursor: move;
+}
+text.foci-label:hover {
+  fill: #888;
+}
+
+#chart .entity {
+  font-size: 15px;
+  text-anchor: middle;
+}
+  </style>
+</head>
+<body>
+    <div id="chart"></div>
+</div>
+    <script type="text/javascript">
+
+/* Data*/
+
+var tag = ["Corporation", "Government", "Environment"];
+
+var entities = [
+  {
+    "name": "European Environment Agency",
+    "abbrev": "EEA",
+    "wikipedia": "http://en.wikipedia.org/wiki/European_Environment_Agency",
+    "tags": ["Environment", "Government"]
+  },
+  {
+    "name": "National Oceanic and Atmospheric Association",
+    "abbrev": "NOAA",
+    "wikipedia": "http://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration",
+    "tags": ["Government", "Environment"]
+  },
+  {
+    "name": "Bureau of Labor Statistics",
+    "abbrev": "BLS",
+    "wikipedia": "http://en.wikipedia.org/wiki/Bureau_of_Labor_Statistics",
+    "tags": ["Government", "Labor", "Economics"]
+  },
+  {
+    "name": "Microsoft",
+    "abbrev": "Microsoft",
+    "wikipedia": "http://en.wikipedia.org/wiki/Microsoft",
+    "tags": ["Corporation", "Government"]
+  },
+  {
+    "name": "Tesla Motors",
+    "abbrev": "Tesla",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tesla_motors",
+    "tags": ["Corporation"]
+  },
+  {
+    "name": "Intergovernmental Panel on Climate Change",
+    "abbrev": "IPCC",
+    "wikipedia": "http://en.wikipedia.org/wiki/Intergovernmental_Panel_on_Climate_Change",
+    "tags": ["Environment", "Government"]
+  },
+  {
+    "name": "Environmental Protection Agency",
+    "abbrev": "EPA",
+    "wikipedia": "http://en.wikipedia.org/wiki/Environmental_Protection_Agency",
+    "tags": ["Environment", "Government"]
+  },
+  {
+    "name": "United States Geological Survey",
+    "abbrev": "USGS",
+    "wikipedia": "http://en.wikipedia.org/wiki/United_States_Geological_Survey",
+    "tags": ["Environment", "Government"]
+  },
+  {
+    "name": "ExxonMobil",
+    "abbrev": "Exxon",
+    "wikipedia": "http://en.wikipedia.org/wiki/ExxonMobil",
+    "tags": ["Corporation", "Environment", "Energy"]
+  },
+  {
+    "name": "PetroChina",
+    "abbrev": "PetroChina",
+    "wikipedia": "http://en.wikipedia.org/wiki/PetroChina",
+    "tags": ["Corporation", "Environment", "Energy"]
+  },
+  {
+    "name": "General Electric",
+    "abbrev": "GE",
+    "wikipedia": "http://en.wikipedia.org/wiki/General_Electric",
+    "tags": ["Corporation", "Environment", "Manufacturing", "Energy"]
+  },
+  {
+    "name": "Pfizer",
+    "abbrev": "Pfizer",
+    "wikipedia": "http://en.wikipedia.org/wiki/Pfizer",
+    "tags": ["Corporation", "Pharmaceutical", "Manufacturing"]
+  },
+  {
+    "name": "Samsung",
+    "abbrev": "Samsung",
+    "wikipedia": "http://en.wikipedia.org/wiki/Samsung",
+    "tags": ["Corporation", "Manufacturing"]
+  },
+  {
+    "name": "Toyota",
+    "abbrev": "Toyota",
+    "wikipedia": "http://en.wikipedia.org/wiki/Toyota",
+    "tags": ["Corporation", "Manufacturing"]
+  },
+  {
+    "name": "Siemens",
+    "abbrev": "Siemens",
+    "wikipedia": "http://en.wikipedia.org/wiki/Siemens",
+    "tags": ["Corporation", "Environment", "Manufacturing", "Energy"]
+  }
+]
+/* Chart */
+
+var width = 960,
+    height = 500,
+    color = d3.scale.category10().domain([1, 2, 4]);
+
+var force = d3.layout.force()
+    .gravity(0)
+    .charge(-120)
+    .size([width, height]);
+
+var nodes = force.nodes(),
+    a = {type: 1, x: 3 * width / 6, y: 2 * height / 6, fixed: true},
+    b = {type: 2, x: 3 * width / 4, y: 4 * height / 6, fixed: true},
+    c = {type: 4, x: 1 * width / 4, y: 4 * height / 6, fixed: true};
+
+nodes.push(a, b, c);
+
+var svg = d3.select("#chart").append("svg:svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("svg:rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.selectAll("text")
+    .data(nodes)
+  .enter().append("svg:text")
+    .attr("class", "foci-label")
+    .attr("x", function(d) { return d.x; })
+    .attr("y", function(d) { return d.y; })
+    .style("fill", fill)
+    .text(function(d,i) { return tag[i]; })
+    .call(force.drag);
+
+force.on("tick", function(e,i) {
+  var k = e.alpha * .1;
+
+  nodes.forEach(function(node) {
+    if (node.type & 1) {
+      node.x += (a.x - node.x) * k;
+      node.y += (a.y - node.y) * k;
+    }
+    if (node.type & 2) {
+      node.x += (b.x - node.x) * k;
+      node.y += (b.y - node.y) * k;
+    }
+    if (node.type & 4) {
+      node.x += (c.x - node.x) * k;
+      node.y += (c.y - node.y) * k;
+    }
+  });
+
+  svg.selectAll("text.foci-label")
+    .attr("x", function(d) { return d.x; })
+    .attr("y", function(d) { return d.y; })
+
+  svg.selectAll("g.entity")
+    .style("display", null)
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+});
+
+_(entities).each(function(d) {
+  node = {type: (Math.random() * 7 + 1) | 0, x: width*(0.75 - 0.5*Math.random()), y: height*(0.75 - 0.5*Math.random())};
+
+  var g = svg.append("svg:g")
+    .data([node])
+    .style("display", "none")
+    .attr("class", "entity")
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+  g.append("circle")
+    .data([node])
+    .attr("r", 6)
+    .style("fill", fill);
+
+  g.append("text")
+    .attr("y", -8)
+    .text(d.abbrev);
+
+  nodes.push(node);
+});
+
+force.start();
+
+function fill(d) {
+  return color(d.type);
+}
+
+    </script>
+  </body>
+</html>

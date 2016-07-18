@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>D3: Cities</title>
+    <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+    <style>
+        path {
+            fill: none;
+            stroke-width: 1px;
+            stroke: #888;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var w = 800;
+    var h = 500;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    // var projection = d3.geo.albersUsa()
+    //         .translate([w / 2, h / 2])
+    //         .scale([700]);
+    var projection = d3.geo.mercator()
+    .center([0, 5 ])
+    .scale(150)
+    .rotate([-180,0]);
+
+    var path = d3.geo.path()
+            .projection(projection);
+
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+       var g = svg.append("g");
+            // world-110m2.json
+            // load and display the World
+d3.json("data/world-110m2.json", function(error, topology) {
+    g.selectAll("path")
+      .data(topojson.object(topology, topology.objects.countries)
+          .geometries)
+    .enter()
+      .append("path")
+      .attr("d", path)
+});
+
+// zoom and pan
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("path")
+            .attr("d", path.projection(projection));
+  });
+
+svg.call(zoom)
+
+</script>
