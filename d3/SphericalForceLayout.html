@@ -154,14 +154,14 @@ for(x=0;x<100;x++){
 
 var link = svg.selectAll("path.link")
     .data(links)
-    .enter().append("path").attr("class", "link")
+    .enter().append("path").attr("class", "link").call(force.drag);
 
 var node = svg.selectAll("path.node")
     .data(nodes)
     .enter().append("path").attr("class", "node")
     .style("fill", function(d) { return fill(d.group); })
     .style("stroke", function(d) { return d3.rgb(fill(d.group)).darker(); })
-    .call(force.drag);
+    // .call(force.drag);
 
 force
     .nodes(nodes)

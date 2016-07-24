@@ -42,7 +42,7 @@ var canvas = d3.select("body").selectAll("canvas")
 var path = d3.geo.path()
     .projection(projection);
 
-d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+d3.json("/data/world-110m2.json", function(error, world) {
   if (error) throw error;
 
   var land = topojson.feature(world, world.objects.land),

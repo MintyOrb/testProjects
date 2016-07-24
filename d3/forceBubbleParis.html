@@ -67,7 +67,7 @@ d3.json('data/datapublishers.json', function(data) {
 
 
  var to_bubble=[]
-//this function could be used to filter circles by city parameter
+ //this function could be used to filter circles by city parameter
   filter_by_city =function (city)
   {
 
@@ -83,33 +83,33 @@ d3.json('data/datapublishers.json', function(data) {
   }
 
 
-                    var node = d3.select("svg").selectAll("g")
-                        .data(data.features)  //filter_by_city('Paris') could be used here, assigning later a more negative charge but its not the ideal solution at all
-                        .enter().append("g")
-                        .attr("id", function(d){ return d.properties.city;})
+      var node = d3.select("svg").selectAll("g")
+          .data(data.features)  //filter_by_city('Paris') could be used here, assigning later a more negative charge but its not the ideal solution at all
+          .enter().append("g")
+          .attr("id", function(d){ return d.properties.city;})
 
-                    node.append("circle")
+      node.append("circle")
 
-                        .attr("transform", function(d) {
-                          return "translate(" + xy(d.geometry.coordinates) + ")"; })
-                        .attr("id", function(d){ return d.id;})
-                        .attr("class", "node")
-                        .attr('fill','blue')
-                        .attr('opacity',0.5)
-                        .attr('r', function(d) {
+          .attr("transform", function(d) {
+            return "translate(" + xy(d.geometry.coordinates) + ")"; })
+          .attr("id", function(d){ return d.id;})
+          .attr("class", "node")
+          .attr('fill','blue')
+          .attr('opacity',0.5)
+          .attr('r', function(d) {
 
-                          return d.properties.num_collections*5})
+            return d.properties.num_collections*5})
 
-                        .call(force.drag);
+          .call(force.drag);
 
 
 
-                       force.on("tick", function() {
-                        node.attr(
-                            "transform",
-                            function(d) { return "translate(" + d.x + "," + d.y + ")"; }
-                        );
-                    });
+         force.on("tick", function() {
+          node.attr(
+              "transform",
+              function(d) { return "translate(" + d.x + "," + d.y + ")"; }
+          );
+      });
 
 
 
