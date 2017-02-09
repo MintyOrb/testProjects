@@ -5,6 +5,8 @@ for line in open('urls.txt'):
     # print video.title, video.viewcount, video.author, video.length
     # print(video.description)
     best = video.getbest()
+    print video.title
+    print line
     title = "".join([c for c in video.title if c.isalpha() or c.isdigit() or c==' ']).rstrip()
     best.download(filepath="videos/"+ title + "." + best.extension)
 
