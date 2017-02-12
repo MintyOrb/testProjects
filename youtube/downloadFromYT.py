@@ -1,14 +1,19 @@
-# from pytube import YouTube
 import pafy
-for line in open('urls.txt'):
-    video = pafy.new(line.strip())
-    # print video.title, video.viewcount, video.author, video.length
-    # print(video.description)
-    best = video.getbest()
-    print video.title
-    print line
-    title = "".join([c for c in video.title if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-    best.download(filepath="videos/"+ title + "." + best.extension)
+
+with open('urls.txt') as urls:
+    current = 0
+    for line in urls:
+        video = pafy.new(line.strip())
+        # print video.title, video.viewcount, video.author, video.length
+        # print(video.description)
+        best = video.getbest()
+        print video.title
+        print line
+        current+=1
+        print current, " of ", sum(1 for _ in urls)
+        break
+        title = "".join([c for c in video.title if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        best.download(filepath="videos/"+ title + "." + best.extension)
 
 # >>> audiostreams = video.audiostreams
 # >>> for a in audiostreams:
@@ -25,3 +30,13 @@ for line in open('urls.txt'):
 # '256'
 #
 # >>> bestaudio.download()
+
+# print(v.title)
+# print(v.duration)
+# print(v.rating)
+# print(v.author)
+# print(v.length)
+# print(v.keywords)
+# print(v.thumb)
+# print(v.videoid)
+# print(v.viewcount)
