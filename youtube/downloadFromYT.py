@@ -1,19 +1,35 @@
 import pafy
 
 with open('urls.txt') as urls:
+    file_lines = urls.readlines()
+    total = len(list(file_lines))
     current = 0
-    for line in urls:
-        video = pafy.new(line.strip())
-        # print video.title, video.viewcount, video.author, video.length
-        # print(video.description)
-        best = video.getbest()
-        print video.title
-        print line
-        current+=1
-        print current, " of ", sum(1 for _ in urls)
-        break
-        title = "".join([c for c in video.title if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-        best.download(filepath="videos/"+ title + "." + best.extension)
+    failed = 0
+    otherErr = 0
+    print total
+    for line in file_lines:
+        try:
+            video = pafy.new(line.strip())
+            # print video.title, video.viewcount, video.author, video.length
+            # print(video.description)
+            best = video.getbest()
+            print video.title
+            print line
+            current+=1
+            print current, " of ", total
+            title = "".join([c for c in video.title if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+            best.download(filepath="videos/"+ title + "." + best.extension)
+        except UnicodeEncodeError:
+            failed += 1
+            with open('failed.txt', 'a') as file:
+                file.write(line)
+        except:
+            otherErr += 1
+            with open('error.txt', 'a') as file:
+                file.write(sys.exc_info()[0] + " " + url)
+    print "finished:"
+    print "Failed: ",
+    print "Other Errors: ",
 
 # >>> audiostreams = video.audiostreams
 # >>> for a in audiostreams:
